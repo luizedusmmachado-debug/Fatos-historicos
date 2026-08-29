@@ -1,0 +1,5835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Grandes Momentos da História — um projeto educacional sobre os principais acontecimentos da História mundial e do Brasil."
+    >
+
+    <title>Grandes Momentos da História</title>
+
+
+    <style>
+
+        /* =========================================================
+           CONFIGURAÇÕES GERAIS
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f4ead5,
+                    #fffaf0
+                );
+
+            color: #33271d;
+
+            line-height: 1.8;
+
+            min-height: 100vh;
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           CABEÇALHO
+        ========================================================= */
+
+        .hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #3b2415,
+                    #6b3e1e,
+                    #9a642f
+                );
+
+            color: white;
+
+            padding: 70px 20px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,.25);
+        }
+
+
+        .hero::before {
+
+            content: "📜";
+
+            position: absolute;
+
+            font-size: 180px;
+
+            opacity: .07;
+
+            left: 5%;
+
+            top: -40px;
+
+            transform: rotate(-15deg);
+        }
+
+
+        .hero::after {
+
+            content: "🏛️";
+
+            position: absolute;
+
+            font-size: 180px;
+
+            opacity: .07;
+
+            right: 5%;
+
+            bottom: -70px;
+
+            transform: rotate(15deg);
+        }
+
+
+        .hero-conteudo {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .logo {
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+
+            filter:
+                drop-shadow(
+                    0 5px 5px rgba(0,0,0,.3)
+                );
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(2.3rem, 6vw, 4.5rem);
+
+            margin-bottom: 10px;
+
+            text-shadow:
+                3px 3px 5px rgba(0,0,0,.4);
+        }
+
+
+        .subtitulo {
+
+            font-size: 1.35rem;
+
+            color: #f8dfad;
+
+            margin-bottom: 20px;
+        }
+
+
+        .criador {
+
+            font-size: 1rem;
+
+            color: #ead8b7;
+        }
+
+
+        /* =========================================================
+           MENU
+        ========================================================= */
+
+        .menu {
+
+            background: #24160e;
+
+            padding: 12px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 3px 12px rgba(0,0,0,.3);
+        }
+
+
+        .menu button {
+
+            border: none;
+
+            background: transparent;
+
+            color: #f5e5c5;
+
+            padding: 12px 16px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-size: .95rem;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .menu button:hover {
+
+            background: #8c5a2b;
+
+            color: white;
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =========================================================
+           CONTEÚDO PRINCIPAL
+        ========================================================= */
+
+        main {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 40px 20px 70px;
+        }
+
+
+        .aba {
+
+            display: none;
+
+            animation:
+                aparecer .45s ease;
+        }
+
+
+        .aba.ativa {
+
+            display: block;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(15px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        .aba h2 {
+
+            color: #5d351b;
+
+            font-size: 2.5rem;
+
+            margin-bottom: 25px;
+
+            border-bottom:
+                3px solid #b98243;
+
+            padding-bottom: 10px;
+        }
+
+
+        .aba h3 {
+
+            color: #70431f;
+
+            font-size: 1.55rem;
+
+            margin-top: 35px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .aba h4 {
+
+            color: #69401f;
+
+            font-size: 1.2rem;
+
+            margin-bottom: 10px;
+        }
+
+
+        .aba p {
+
+            margin-bottom: 16px;
+
+            text-align: justify;
+        }
+
+
+        .aba ul {
+
+            margin:
+                15px 0 20px 25px;
+        }
+
+
+        .aba li {
+
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================================================
+           TÍTULO DA PÁGINA
+        ========================================================= */
+
+        .titulo-pagina {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8e8,
+                    #f1dfbd
+                );
+
+            border-left:
+                6px solid #9a642f;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            margin-bottom: 30px;
+
+            box-shadow:
+                0 5px 18px rgba(80,50,20,.1);
+        }
+
+
+        .titulo-pagina > span {
+
+            font-size: 55px;
+        }
+
+
+        .titulo-pagina h2 {
+
+            border: none;
+
+            padding: 0;
+
+            margin: 0 0 5px;
+
+            font-size: 2rem;
+        }
+
+
+        .titulo-pagina p {
+
+            margin: 0;
+
+            color: #65482e;
+        }
+
+
+        /* =========================================================
+           TEXTO DE DESTAQUE
+        ========================================================= */
+
+        .hero-texto {
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 20px rgba(70,40,10,.1);
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================================================
+           ESTATÍSTICAS
+        ========================================================= */
+
+        .estatisticas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap: 18px;
+
+            margin:
+                30px 0 45px;
+        }
+
+
+        .estatisticas div {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #6d421f,
+                    #9b6733
+                );
+
+            color: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.15);
+        }
+
+
+        .estatisticas strong {
+
+            display: block;
+
+            font-size: 2rem;
+
+            color: #ffe5ad;
+        }
+
+
+        .estatisticas span {
+
+            display: block;
+
+            font-size: .95rem;
+        }
+
+
+        /* =========================================================
+           DESTAQUES
+        ========================================================= */
+
+        .destaque {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff4d8,
+                    #f3dfb5
+                );
+
+            border:
+                1px solid #d7b67f;
+
+            border-left:
+                6px solid #b47635;
+
+            padding: 28px;
+
+            border-radius: 12px;
+
+            margin:
+                30px 0;
+        }
+
+
+        .destaque h3 {
+
+            margin-top: 0;
+        }
+
+
+        .aviso {
+
+            background: #fff9e9;
+
+            border:
+                1px dashed #b58245;
+
+            padding: 22px;
+
+            border-radius: 10px;
+
+            margin-top: 25px;
+        }
+
+
+        /* =========================================================
+           INFORMAÇÕES
+        ========================================================= */
+
+        .info {
+
+            display: inline-block;
+
+            background:
+                #e7d1aa;
+
+            color:
+                #4d2c16;
+
+            padding:
+                10px 18px;
+
+            border-radius: 25px;
+
+            margin-bottom: 25px;
+
+            font-size: .95rem;
+        }
+
+
+        /* =========================================================
+           CARDS
+        ========================================================= */
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        220px,
+                        1fr
+                    )
+                );
+
+            gap: 20px;
+
+            margin:
+                25px 0 35px;
+        }
+
+
+        .card {
+
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            border-top:
+                5px solid #99622d;
+
+            box-shadow:
+                0 5px 18px rgba(70,40,10,.1);
+
+            transition:
+                .25s ease;
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 10px 25px rgba(70,40,10,.18);
+        }
+
+
+        .card p {
+
+            text-align: left;
+
+            margin: 0;
+        }
+
+
+        /* =========================================================
+           BOTÃO VOLTAR
+        ========================================================= */
+
+        .voltar {
+
+            border: none;
+
+            background:
+                #69401f;
+
+            color: white;
+
+            padding:
+                11px 18px;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            margin-bottom: 25px;
+
+            transition: .2s;
+        }
+
+
+        .voltar:hover {
+
+            background:
+                #9a642f;
+
+            transform:
+                translateX(-3px);
+        }
+
+
+        /* =========================================================
+           PESQUISA
+        ========================================================= */
+
+        .busca {
+
+            margin:
+                25px 0 35px;
+        }
+
+
+        .busca input {
+
+            width: 100%;
+
+            padding:
+                16px 20px;
+
+            border:
+                2px solid #d4b17b;
+
+            border-radius: 10px;
+
+            background: white;
+
+            color: #382719;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            transition: .2s;
+        }
+
+
+        .busca input:focus {
+
+            border-color:
+                #8c5a2b;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(140,90,43,.12);
+        }
+
+
+        /* =========================================================
+           TEMAS
+        ========================================================= */
+
+        .temas {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        250px,
+                        1fr
+                    )
+                );
+
+            gap: 22px;
+        }
+
+
+        .tema {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 5px 18px rgba(70,40,10,.1);
+
+            border:
+                1px solid #ead8b8;
+
+            transition:
+                .25s ease;
+        }
+
+
+        .tema:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                #b47b3c;
+
+            box-shadow:
+                0 12px 28px
+                rgba(70,40,10,.18);
+        }
+
+
+        .icone {
+
+            display: block;
+
+            font-size: 45px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .tema h3 {
+
+            margin-top: 5px;
+        }
+
+
+        .tema p {
+
+            text-align: left;
+
+            color: #5f4b38;
+        }
+
+
+        .tema button {
+
+            border: none;
+
+            background:
+                #70431f;
+
+            color: white;
+
+            padding:
+                10px 15px;
+
+            border-radius: 7px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .tema button:hover {
+
+            background:
+                #a56d35;
+        }
+
+
+        /* =========================================================
+           RODAPÉ
+        ========================================================= */
+
+        footer {
+
+            background:
+                #24160e;
+
+            color:
+                #e9d7b8;
+
+            text-align: center;
+
+            padding:
+                50px 20px;
+        }
+
+
+        .footer-conteudo {
+
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+
+        .footer-logo {
+
+            font-size: 55px;
+
+            margin-bottom: 10px;
+        }
+
+
+        footer h2 {
+
+            color: #f5dfb8;
+
+            margin-bottom: 8px;
+        }
+
+
+        footer hr {
+
+            border: none;
+
+            border-top:
+                1px solid #69482d;
+
+            margin:
+                25px 0;
+        }
+
+
+        .copyright {
+
+            color: #aa9277;
+
+            margin-top: 15px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVIDADE
+        ========================================================= */
+
+        @media (max-width: 800px) {
+
+            .estatisticas {
+
+                grid-template-columns:
+                    repeat(
+                        2,
+                        1fr
+                    );
+            }
+
+
+            .menu {
+
+                position: relative;
+            }
+
+
+            .hero {
+
+                padding:
+                    50px 15px;
+            }
+
+
+            .aba h2 {
+
+                font-size:
+                    2rem;
+            }
+
+
+            .titulo-pagina {
+
+                flex-direction:
+                    column;
+
+                text-align:
+                    center;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .estatisticas {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            main {
+
+                padding:
+                    25px 14px 50px;
+            }
+
+
+            .hero-texto,
+            .card,
+            .tema {
+
+                padding:
+                    20px;
+            }
+
+
+            .menu button {
+
+                width:
+                    100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     CABEÇALHO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-conteudo">
+
+        <div class="logo">📜</div>
+
+        <h1>
+            Grandes Momentos da História
+        </h1>
+
+        <p class="subtitulo">
+            Uma viagem pelo passado para compreender o presente
+        </p>
+
+        <p class="criador">
+            Criado por
+            <strong>
+                Luiz Eduardo Sena da Mata Machado
+            </strong>
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MENU
+========================================================= -->
+
+<nav class="menu">
+
+    <button onclick="abrirAba('inicio')">
+        🏠 Início
+    </button>
+
+    <button onclick="abrirAba('primeira')">
+        ⚔️ 1ª Guerra Mundial
+    </button>
+
+    <button onclick="abrirAba('segunda')">
+        🌍 2ª Guerra Mundial
+    </button>
+
+    <button onclick="abrirAba('francesa')">
+        🇫🇷 Revolução Francesa
+    </button>
+
+    <button onclick="abrirAba('brasil')">
+        🇧🇷 Independência do Brasil
+    </button>
+
+    <button onclick="abrirAba('industrial')">
+        🏭 Revolução Industrial
+    </button>
+
+    <button onclick="abrirAba('guerrafria')">
+        ☢️ Guerra Fria
+    </button>
+
+    <button onclick="abrirAba('diversos')">
+        📚 Outros Temas
+    </button>
+
+    <button onclick="abrirAba('linha')">
+        ⏳ Linha do Tempo
+    </button>
+
+    <button onclick="abrirAba('curiosidades')">
+        🤯 Curiosidades
+    </button>
+
+</nav>
+
+
+<!-- =========================================================
+     CONTEÚDO
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     INÍCIO
+========================================================= -->
+
+<section id="inicio" class="aba ativa">
+
+    <div class="titulo-pagina">
+
+        <span>📚</span>
+
+        <div>
+
+            <h2>
+                Bem-vindo ao Grandes Momentos da História
+            </h2>
+
+            <p>
+                Explore acontecimentos que transformaram a humanidade.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-texto">
+
+        <p>
+            A História é muito mais do que uma sequência de datas.
+            Ela é formada pelas experiências, conflitos, descobertas,
+            culturas, ideias e decisões de milhões de pessoas ao longo
+            dos séculos.
+        </p>
+
+        <p>
+            Estudar História permite compreender como diferentes
+            sociedades foram organizadas, como surgiram os Estados,
+            como ocorreram guerras e revoluções e como as pessoas
+            transformaram o mundo em que viviam.
+        </p>
+
+        <p>
+            Neste site você encontrará informações sobre importantes
+            acontecimentos da História mundial e da História do Brasil.
+            Cada tema possui uma página própria com explicações,
+            personagens, causas, acontecimentos e consequências.
+        </p>
+
+        <p>
+            O objetivo não é apenas decorar datas. É compreender
+            processos históricos, perceber relações entre diferentes
+            acontecimentos e analisar como decisões tomadas no passado
+            podem produzir consequências durante décadas ou até séculos.
+        </p>
+
+    </div>
+
+
+    <div class="estatisticas">
+
+        <div>
+
+            <strong>
+                20+
+            </strong>
+
+            <span>
+                Temas históricos
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                100+
+            </strong>
+
+            <span>
+                Acontecimentos
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                🌎
+            </strong>
+
+            <span>
+                História mundial
+            </span>
+
+        </div>
+
+
+        <div>
+
+            <strong>
+                🇧🇷
+            </strong>
+
+            <span>
+                História do Brasil
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <h3>
+        🔎 Como utilizar o site?
+    </h3>
+
+    <p>
+        Utilize o menu localizado no topo para acessar os principais
+        acontecimentos. Caso queira explorar outros períodos,
+        clique em <strong>Outros Temas</strong>.
+    </p>
+
+
+    <div class="destaque">
+
+        <h3>
+            💡 Por que estudar História?
+        </h3>
+
+        <p>
+            Conhecer o passado ajuda a compreender instituições,
+            sociedades, conflitos, desigualdades, culturas e ideias
+            presentes no mundo atual.
+        </p>
+
+        <p>
+            A História também permite analisar diferentes pontos
+            de vista e compreender que acontecimentos históricos
+            normalmente possuem causas complexas e consequências
+            que podem durar décadas ou séculos.
+        </p>
+
+    </div>
+
+
+    <h3>
+        🧠 Como analisar um acontecimento histórico?
+    </h3>
+
+    <div class="cards">
+
+        <article class="card">
+
+            <h4>
+                1️⃣ Contexto
+            </h4>
+
+            <p>
+                Primeiro é necessário compreender a sociedade,
+                economia e política existentes antes do acontecimento.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                2️⃣ Causas
+            </h4>
+
+            <p>
+                Os grandes acontecimentos normalmente possuem
+                várias causas e não podem ser explicados por
+                apenas um fator.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                3️⃣ Acontecimentos
+            </h4>
+
+            <p>
+                É importante observar como os acontecimentos
+                se desenvolveram e quais grupos participaram deles.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                4️⃣ Consequências
+            </h4>
+
+            <p>
+                Depois é necessário analisar as mudanças provocadas
+                pelo acontecimento e seus efeitos de longo prazo.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="aviso">
+
+        <strong>
+            📌 Importante:
+        </strong>
+
+        Este site é um projeto educacional criado para apresentar
+        informações históricas de forma simples, organizada e
+        acessível.
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRIMEIRA GUERRA MUNDIAL
+========================================================= -->
+
+<section id="primeira" class="aba">
+
+    <button
+        class="voltar"
+        onclick="abrirAba('inicio')"
+    >
+        ← Voltar ao início
+    </button>
+
+
+    <h2>
+        ⚔️ Primeira Guerra Mundial
+    </h2>
+
+
+    <div class="info">
+
+        <strong>
+            Período:
+        </strong>
+
+        1914 – 1918
+
+    </div>
+
+
+    <h3>
+        📖 O que foi?
+    </h3>
+
+    <p>
+        A Primeira Guerra Mundial foi um enorme conflito militar
+        que ocorreu principalmente entre 1914 e 1918. Embora
+        concentrada inicialmente na Europa, a guerra envolveu
+        países de diferentes regiões do mundo e teve consequências
+        políticas, econômicas e sociais globais.
+    </p>
+
+    <p>
+        O conflito representou uma ruptura profunda com o mundo
+        europeu do século XIX. Grandes impérios desapareceram,
+        novas fronteiras foram estabelecidas e milhões de pessoas
+        morreram ou ficaram feridas.
+    </p>
+
+
+    <h3>
+        🌍 A Europa antes da guerra
+    </h3>
+
+    <p>
+        No início do século XX, a Europa era uma das principais
+        regiões econômicas e políticas do planeta. Países como
+        Reino Unido, França, Alemanha, Rússia e Áustria-Hungria
+        possuíam grande influência internacional.
+    </p>
+
+    <p>
+        Ao mesmo tempo, existiam fortes rivalidades entre essas
+        potências. A competição por territórios coloniais,
+        mercados e influência política aumentava as tensões.
+    </p>
+
+
+    <h3>
+        🔥 Principais causas
+    </h3>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <h4>
+                🇩🇪 Nacionalismo
+            </h4>
+
+            <p>
+                O nacionalismo estimulava sentimentos de identidade
+                e orgulho nacional, mas também podia alimentar
+                rivalidades e disputas territoriais.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                🌎 Imperialismo
+            </h4>
+
+            <p>
+                As potências europeias disputavam colônias,
+                matérias-primas, mercados consumidores e áreas
+                estratégicas.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                🪖 Militarismo
+            </h4>
+
+            <p>
+                Os Estados aumentaram seus exércitos, frotas
+                e arsenais. A corrida armamentista contribuiu
+                para o clima de insegurança.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                🤝 Sistema de alianças
+            </h4>
+
+            <p>
+                As potências formaram alianças militares.
+                Isso significava que uma crise envolvendo
+                dois países poderia rapidamente envolver
+                diversos outros.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3>
+        💥 Assassinato de Francisco Ferdinando
+    </h3>
+
+    <p>
+        Em 28 de junho de 1914, o arquiduque Francisco Ferdinando,
+        herdeiro do trono do Império Austro-Húngaro, foi assassinado
+        em Sarajevo por Gavrilo Princip.
+    </p>
+
+    <p>
+        O atentado não foi a única causa da guerra. Entretanto,
+        funcionou como um gatilho para uma crise que já envolvia
+        rivalidades políticas, nacionalismos, alianças militares
+        e disputas territoriais.
+    </p>
+
+
+    <h3>
+        🤝 Os principais blocos
+    </h3>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <h4>
+                Tríplice Entente
+            </h4>
+
+            <p>
+                Reino Unido, França e Rússia estavam entre
+                os principais membros. Durante a guerra,
+                outros países, incluindo os Estados Unidos,
+                juntaram-se ao lado dos Aliados.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                Potências Centrais
+            </h4>
+
+            <p>
+                Alemanha e Império Austro-Húngaro estavam entre
+                os principais membros. O Império Otomano e a
+                Bulgária também participaram do bloco.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3>
+        🕳️ Guerra de trincheiras
+    </h3>
+
+    <p>
+        Na Frente Ocidental, os exércitos construíram extensas
+        redes de trincheiras. Os soldados permaneciam durante
+        longos períodos em posições fortificadas, enquanto
+        tentavam avançar contra o inimigo.
+    </p>
+
+    <p>
+        As condições eram extremamente difíceis. Lama, frio,
+        doenças, falta de higiene, ratos, bombardeios e ataques
+        constantes faziam parte da vida cotidiana de muitos
+        soldados.
+    </p>
+
+
+    <h3>
+        ⚙️ Novas tecnologias militares
+    </h3>
+
+    <p>
+        A Primeira Guerra Mundial ficou marcada pela utilização
+        em larga escala de tecnologias que aumentaram enormemente
+        o poder destrutivo dos exércitos.
+    </p>
+
+    <ul>
+
+        <li>
+            Metralhadoras.
+        </li>
+
+        <li>
+            Artilharia pesada.
+        </li>
+
+        <li>
+            Gases tóxicos.
+        </li>
+
+        <li>
+            Tanques.
+        </li>
+
+        <li>
+            Aviões.
+        </li>
+
+        <li>
+            Submarinos.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        🇺🇸 Entrada dos Estados Unidos
+    </h3>
+
+    <p>
+        Os Estados Unidos declararam guerra à Alemanha em abril
+        de 1917. A participação norte-americana aumentou os
+        recursos disponíveis para os Aliados.
+    </p>
+
+
+    <h3>
+        🇷🇺 Rússia e a Revolução de 1917
+    </h3>
+
+    <p>
+        A guerra agravou problemas econômicos e sociais existentes
+        na Rússia. Em 1917 ocorreram duas grandes revoluções.
+        A primeira derrubou o czar Nicolau II e a segunda levou
+        os bolcheviques, liderados por Lenin, ao poder.
+    </p>
+
+    <p>
+        Posteriormente, o novo governo russo retirou o país
+        da guerra.
+    </p>
+
+
+    <h3>
+        🏁 Fim da guerra
+    </h3>
+
+    <p>
+        Em 11 de novembro de 1918, a Alemanha aceitou o armistício,
+        encerrando os principais combates da Primeira Guerra Mundial.
+    </p>
+
+
+    <h3>
+        📜 Tratado de Versalhes
+    </h3>
+
+    <p>
+        Em 1919, foi assinado o Tratado de Versalhes, que estabeleceu
+        duras condições para a Alemanha. O país perdeu territórios,
+        teve suas forças militares limitadas e foi responsabilizado
+        por danos relacionados à guerra.
+    </p>
+
+    <p>
+        O tratado tornou-se posteriormente parte importante do
+        contexto político que contribuiu para o crescimento do
+        ressentimento na Alemanha.
+    </p>
+
+
+    <h3>
+        📌 Consequências
+    </h3>
+
+    <ul>
+
+        <li>
+            Milhões de mortos e feridos.
+        </li>
+
+        <li>
+            Grande destruição material.
+        </li>
+
+        <li>
+            Queda dos impérios Alemão, Austro-Húngaro,
+            Otomano e Russo.
+        </li>
+
+        <li>
+            Surgimento de novos Estados na Europa.
+        </li>
+
+        <li>
+            Crises econômicas e sociais.
+        </li>
+
+        <li>
+            Criação da Liga das Nações.
+        </li>
+
+        <li>
+            Mudanças no equilíbrio político mundial.
+        </li>
+
+        <li>
+            Fortalecimento da influência dos Estados Unidos.
+        </li>
+
+        <li>
+            Surgimento de condições que contribuiriam
+            para novas tensões nas décadas seguintes.
+        </li>
+
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>
+            🧠 Você sabia?
+        </h3>
+
+        <p>
+            Embora seja chamada de “Primeira Guerra Mundial”,
+            grande parte dos combates ocorreu na Europa. Entretanto,
+            o conflito também envolveu territórios africanos,
+            asiáticos, o Oriente Médio e forças de diferentes
+            partes do mundo.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SEGUNDA GUERRA MUNDIAL
+========================================================= -->
+
+<section id="segunda" class="aba">
+
+    <button
+        class="voltar"
+        onclick="abrirAba('inicio')"
+    >
+        ← Voltar ao início
+    </button>
+
+
+    <h2>
+        🌍 Segunda Guerra Mundial
+    </h2>
+
+
+    <div class="info">
+
+        <strong>
+            Período:
+        </strong>
+
+        1939 – 1945
+
+    </div>
+
+
+    <h3>
+        📖 O que foi?
+    </h3>
+
+    <p>
+        A Segunda Guerra Mundial foi um conflito global que
+        envolveu dezenas de países entre 1939 e 1945.
+        Foi o conflito mais destrutivo da história contemporânea,
+        causando dezenas de milhões de mortes.
+    </p>
+
+    <p>
+        A guerra envolveu batalhas terrestres, navais e aéreas
+        em diferentes continentes. Também foi marcada por
+        perseguições políticas e raciais, ocupações militares,
+        genocídio e ataques contra populações civis.
+    </p>
+
+
+    <h3>
+        🔥 Causas
+    </h3>
+
+    <ul>
+
+        <li>
+            Consequências da Primeira Guerra Mundial.
+        </li>
+
+        <li>
+            Tratado de Versalhes.
+        </li>
+
+        <li>
+            Crise econômica de 1929.
+        </li>
+
+        <li>
+            Crescimento do nazismo.
+        </li>
+
+        <li>
+            Expansionismo alemão.
+        </li>
+
+        <li>
+            Expansionismo italiano.
+        </li>
+
+        <li>
+            Expansionismo japonês.
+        </li>
+
+        <li>
+            Fragilidade da Liga das Nações.
+        </li>
+
+        <li>
+            Política de apaziguamento adotada por algumas
+            potências europeias.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        👤 Adolf Hitler e o nazismo
+    </h3>
+
+    <p>
+        Adolf Hitler tornou-se chanceler da Alemanha em 1933
+        e posteriormente estabeleceu uma ditadura nazista.
+    </p>
+
+    <p>
+        O nazismo defendia ideias racistas, antissemitas,
+        ultranacionalistas e expansionistas. O regime perseguiu
+        opositores políticos e grupos considerados inimigos
+        ou racialmente inferiores pela ideologia nazista.
+    </p>
+
+
+    <h3>
+        ⚔️ Eixo e Aliados
+    </h3>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <h4>
+                Potências do Eixo
+            </h4>
+
+            <p>
+                Alemanha, Itália e Japão foram os principais
+                integrantes do Eixo.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                Aliados
+            </h4>
+
+            <p>
+                Reino Unido, União Soviética, Estados Unidos,
+                China e França estavam entre os principais
+                integrantes dos Aliados.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3>
+        🇵🇱 Invasão da Polônia
+    </h3>
+
+    <p>
+        Em 1º de setembro de 1939, a Alemanha invadiu a Polônia.
+        Em resposta, Reino Unido e França declararam guerra
+        à Alemanha.
+    </p>
+
+    <p>
+        Esse acontecimento é tradicionalmente considerado
+        o início da Segunda Guerra Mundial na Europa.
+    </p>
+
+
+    <h3>
+        🇫🇷 Queda da França
+    </h3>
+
+    <p>
+        Em 1940, as forças alemãs derrotaram rapidamente
+        a França. Paris foi ocupada e o território francês
+        passou a possuir diferentes áreas sob controle
+        alemão ou de governos colaboracionistas.
+    </p>
+
+
+    <h3>
+        🇬🇧 Batalha da Grã-Bretanha
+    </h3>
+
+    <p>
+        A Alemanha realizou uma grande campanha aérea contra
+        o Reino Unido em 1940. A resistência da Royal Air Force
+        impediu que a Alemanha alcançasse superioridade aérea
+        suficiente para realizar uma invasão.
+    </p>
+
+
+    <h3>
+        🇷🇺 Operação Barbarossa
+    </h3>
+
+    <p>
+        Em 22 de junho de 1941, a Alemanha iniciou a Operação
+        Barbarossa, invadindo a União Soviética.
+    </p>
+
+    <p>
+        A campanha abriu uma enorme frente de combate no Leste
+        Europeu e provocou perdas humanas gigantescas.
+    </p>
+
+
+    <h3>
+        🇯🇵 Pearl Harbor
+    </h3>
+
+    <p>
+        Em 7 de dezembro de 1941, o Japão atacou a base naval
+        norte-americana de Pearl Harbor, no Havaí.
+    </p>
+
+    <p>
+        No dia seguinte, os Estados Unidos declararam guerra
+        ao Japão. Pouco depois, Alemanha e Itália declararam
+        guerra aos Estados Unidos.
+    </p>
+
+
+    <h3>
+        ⚔️ Stalingrado
+    </h3>
+
+    <p>
+        A Batalha de Stalingrado ocorreu entre 1942 e 1943
+        e terminou com uma importante derrota alemã.
+    </p>
+
+    <p>
+        A batalha é considerada um dos principais pontos
+        de virada da guerra na Frente Oriental.
+    </p>
+
+
+    <h3>
+        🚢 Dia D
+    </h3>
+
+    <p>
+        Em 6 de junho de 1944, tropas aliadas desembarcaram
+        na Normandia, no norte da França.
+    </p>
+
+    <p>
+        A operação abriu uma grande frente ocidental contra
+        a Alemanha e contribuiu para a libertação da França.
+    </p>
+
+
+    <h3>
+        🕯️ Holocausto
+    </h3>
+
+    <p>
+        O regime nazista organizou uma perseguição sistemática
+        contra judeus e outros grupos. Aproximadamente seis
+        milhões de judeus foram assassinados no Holocausto.
+    </p>
+
+    <p>
+        Também foram perseguidos e mortos milhões de outras
+        pessoas, incluindo pessoas com deficiência, povos
+        Roma e Sinti, prisioneiros de guerra soviéticos,
+        opositores políticos e outros grupos perseguidos
+        pelo regime.
+    </p>
+
+
+    <h3>
+        ☢️ Hiroshima e Nagasaki
+    </h3>
+
+    <p>
+        Em agosto de 1945, os Estados Unidos lançaram bombas
+        atômicas sobre Hiroshima e Nagasaki.
+    </p>
+
+    <p>
+        Os ataques provocaram enorme destruição e milhares
+        de mortes imediatas, além de mortes posteriores
+        relacionadas aos efeitos da radiação.
+    </p>
+
+
+    <h3>
+        🏁 Fim da guerra
+    </h3>
+
+    <p>
+        A Alemanha se rendeu em maio de 1945.
+        O Japão anunciou sua rendição em agosto e a formalizou
+        em setembro de 1945.
+    </p>
+
+
+    <h3>
+        🌎 Consequências
+    </h3>
+
+    <ul>
+
+        <li>
+            Dezenas de milhões de mortos.
+        </li>
+
+        <li>
+            Destruição de cidades e infraestrutura.
+        </li>
+
+        <li>
+            Criação da Organização das Nações Unidas.
+        </li>
+
+        <li>
+            Divisão e ocupação da Alemanha.
+        </li>
+
+        <li>
+            Fortalecimento dos Estados Unidos.
+        </li>
+
+        <li>
+            Fortalecimento da União Soviética.
+        </li>
+
+        <li>
+            Início da Guerra Fria.
+        </li>
+
+        <li>
+            Aceleração dos processos de descolonização.
+        </li>
+
+        <li>
+            Julgamentos de criminosos de guerra.
+        </li>
+
+        <li>
+            Desenvolvimento de novas tecnologias militares
+            e científicas.
+        </li>
+
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>
+            🧠 Importância histórica
+        </h3>
+
+        <p>
+            A Segunda Guerra Mundial alterou profundamente
+            a ordem internacional. O conflito contribuiu para
+            a criação da ONU, para a divisão do mundo em grandes
+            blocos políticos e para o início de uma nova fase
+            das relações internacionais.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REVOLUÇÃO FRANCESA
+========================================================= -->
+
+<section id="francesa" class="aba">
+
+    <button
+        class="voltar"
+        onclick="abrirAba('inicio')"
+    >
+        ← Voltar ao início
+    </button>
+
+
+    <h2>
+        🇫🇷 Revolução Francesa
+    </h2>
+
+
+    <div class="info">
+
+        <strong>
+            Período:
+        </strong>
+
+        1789 – 1799
+
+    </div>
+
+
+    <h3>
+        📖 O que foi?
+    </h3>
+
+    <p>
+        A Revolução Francesa foi um processo político e social
+        iniciado em 1789 que transformou profundamente a França.
+    </p>
+
+    <p>
+        O movimento derrubou estruturas do Antigo Regime,
+        alterou as relações de poder e difundiu ideias como
+        cidadania, igualdade jurídica e soberania popular.
+    </p>
+
+
+    <h3>
+        👥 Os três Estados
+    </h3>
+
+
+    <div class="cards">
+
+
+        <article class="card">
+
+            <h4>
+                ⛪ Primeiro Estado
+            </h4>
+
+            <p>
+                Era formado principalmente pelo clero.
+                A Igreja possuía importantes privilégios
+                sociais e econômicos.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                👑 Segundo Estado
+            </h4>
+
+            <p>
+                Correspondia principalmente à nobreza,
+                que também possuía privilégios jurídicos
+                e fiscais.
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h4>
+                👨‍🌾 Terceiro Estado
+            </h4>
+
+            <p>
+                Incluía burgueses, trabalhadores urbanos,
+                artesãos e camponeses. Era a grande maioria
+                da população.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3>
+        🔥 Principais causas
+    </h3>
+
+    <ul>
+
+        <li>
+            Desigualdade social.
+        </li>
+
+        <li>
+            Privilégios da nobreza e do clero.
+        </li>
+
+        <li>
+            Grave crise financeira do Estado.
+        </li>
+
+        <li>
+            Endividamento francês.
+        </li>
+
+        <li>
+            Fome e aumento do preço dos alimentos.
+        </li>
+
+        <li>
+            Influência das ideias iluministas.
+        </li>
+
+        <li>
+            Insatisfação da burguesia.
+        </li>
+
+        <li>
+            Influência do exemplo da independência
+            dos Estados Unidos.
+        </li>
+
+    </ul>
+
+
+    <h3>
+        🏛️ Estados Gerais
+    </h3>
+
+    <p>
+        Em 1789, o rei Luís XVI convocou os Estados Gerais
+        para discutir a grave situação financeira da França.
+    </p>
+
+    <p>
+        O conflito sobre o sistema de votação levou representantes
+        do Terceiro Estado a declararem-se Assembleia Nacional.
+    </p>
+
+
+    <h3>
+        🏰 Queda da Bastilha
+    </h3>
+
+    <p>
+        Em 14 de julho de 1789, revolucionários tomaram a Bastilha,
+        uma fortaleza-prisão em Paris.
+    </p>
+
+    <p>
+        A Bastilha possuía importância simbólica como representação
+        do poder monárquico. A queda da fortaleza tornou-se um
+        dos principais símbolos da Revolução.
+    </p>
+
+
+    <h3>
+        🌾 O Grande Medo
+    </h3>
+
+    <p>
+        Durante 1789, rumores sobre possíveis repressões e ataques
+        provocaram revoltas camponesas em várias regiões.
+    </p>
+
+    <p>
+        Muitos camponeses atacaram propriedades senhoriais
+        e destruíram documentos relacionados a obrigações feudais.
+    </p>
+
+
+    <h3>
+        📜 Declaração dos Direitos do Homem e do Cidadão
+    </h3>
+
+    <p>
+        Em 1789 foi aprovada a Declaração dos Direitos do Homem
+        e do Cidadão.
+    </p>
+
+    <p>
+        O documento defendia princípios relacionados à liberdade,
+        igualdade jurídica e soberania nacional.
+    </p>
+
+
+    <h3>
+        👑 Fim da monarquia
+    </h3>
+
+    <p>
+        Em 1792, a monarquia foi abolida e a França tornou-se
+        uma república.
+    </p>
+
+
+    <h3>
+        ⚔️ Período do Terror
+    </h3>
+
+    <p>
+        Entre 1793 e 1794, durante a fase mais radical da Revolução,
+        o governo revolucionário adotou medidas repressivas
+        contra pessoas consideradas inimigas da Revolução.
+    </p>
+
+    <p>
+        Milhares de pessoas foram executadas durante esse período,
+        muitas delas pela guilhotina.
+    </p>
+
+
+    <h3>
+        👤 Robespierre
+    </h3>
+
+    <p>
+        Maximilien Robespierre foi uma das principais figuras
+        políticas do período radical e esteve associado ao
+        Comitê de Salvação Pública.
+    </p>
+
+    <p>
+        Em julho de 1794, Robespierre foi preso e executado,
+        marcando o enfraquecimento da fase mais radical.
+    </p>
+
+
+    <h3>
+        👑 Napoleão Bonaparte
+    </h3>
+
+    <p>
+        A instabilidade política continuou durante o período
+        do Diretório. Em 1799, Napoleão Bonaparte participou
+        do golpe de 18 de Brumário e assumiu o poder.
+    </p>
+
+
+    <h3>
+        📌 Consequências
+    </h3>
+
+    <ul>
+
+        <li>
+            Fim do Antigo Regime francês.
+        </li>
+
+        <li>
+            Abolição de privilégios feudais.
+        </li>
+
+        <li>
+            Transformação das instituições políticas.
+        </li>
+
+        <li>
+            Fortalecimento das ideias de cidadania.
+        </li>
+
+        <li>
+            Expansão das ideias liberais.
+        </li>
+
+        <li>
+            Mudanças nas relações entre Estado e religião.
+        </li>
+
+        <li>
+            Ascensão de Napoleão Bonaparte.
+        </li>
+
+        <li>
+            Influência sobre movimentos políticos
+            em diferentes partes do mundo.
+        </li>
+
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>
+            🧠 Legado
+        </h3>
+
+        <p>
+            A Revolução Francesa tornou-se uma referência central
+            para a história política moderna. Seus conceitos de
+            cidadania, direitos, soberania e igualdade jurídica
+            influenciaram constituições e movimentos políticos
+            posteriores.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FIM DA PARTE 1
+========================================================= -->
+
+<!--
+    CONTINUE NA PARTE 2 AQUI.
+
+    NÃO coloque novamente:
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <body>
+
+    A Parte 2 continuará diretamente daqui.
+--><!-- ================================================= -->
+<!-- PARTE 2 — TEMAS AMPLIADOS -->
+<!-- ================================================= -->
+
+
+<!-- ================================================= -->
+<!-- INDEPENDÊNCIA DO BRASIL -->
+<!-- ================================================= -->
+
+<section id="brasil" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>🇧🇷 Independência do Brasil</h2>
+
+    <div class="info">
+        <strong>Período:</strong> processo de independência entre
+        1808 e 1825
+        <br>
+        <strong>Data tradicional:</strong> 7 de setembro de 1822
+    </div>
+
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A Independência do Brasil foi o processo político,
+        econômico e militar que levou à separação do Brasil
+        em relação ao Reino de Portugal e à formação de um
+        Estado brasileiro independente.
+    </p>
+
+    <p>
+        Embora o dia 7 de setembro de 1822 seja considerado
+        tradicionalmente o momento da declaração da independência,
+        o processo foi mais longo e envolveu acontecimentos
+        ocorridos antes e depois dessa data.
+    </p>
+
+    <p>
+        A independência também não aconteceu da mesma maneira
+        em todas as regiões do território. Em algumas províncias,
+        tropas e grupos favoráveis a Portugal resistiram ao novo
+        governo brasileiro.
+    </p>
+
+
+    <h3>🌎 O Brasil antes da independência</h3>
+
+    <p>
+        Durante o período colonial, o Brasil fazia parte do
+        Império Português. A economia estava organizada em torno
+        de atividades como produção de açúcar, mineração,
+        pecuária e, posteriormente, produção de café.
+    </p>
+
+    <p>
+        A sociedade colonial era profundamente desigual e
+        dependia amplamente do trabalho de africanos escravizados
+        e seus descendentes.
+    </p>
+
+
+    <h3>🇫🇷 As Guerras Napoleônicas</h3>
+
+    <p>
+        No início do século XIX, Napoleão Bonaparte buscava
+        ampliar a influência francesa sobre a Europa.
+    </p>
+
+    <p>
+        Em 1807, tropas francesas invadiram Portugal.
+        Para evitar a captura da família real, o príncipe regente
+        D. João e sua corte transferiram-se para o Brasil.
+    </p>
+
+
+    <h3>🚢 Chegada da família real</h3>
+
+    <p>
+        Em 1808, a família real portuguesa chegou ao Brasil.
+        A presença da corte provocou profundas transformações
+        na vida política e econômica da colônia.
+    </p>
+
+    <p>
+        O Rio de Janeiro passou a funcionar como centro
+        administrativo do Império Português.
+    </p>
+
+    <h3>🏛️ Transformações no Rio de Janeiro</h3>
+
+    <ul>
+        <li>Criação de instituições administrativas.</li>
+        <li>Criação da Imprensa Régia.</li>
+        <li>Fundação do Banco do Brasil.</li>
+        <li>Criação de instituições culturais.</li>
+        <li>Expansão da infraestrutura urbana.</li>
+        <li>Aumento da circulação de comerciantes e funcionários.</li>
+        <li>Fortalecimento do Rio de Janeiro como centro político.</li>
+    </ul>
+
+
+    <h3>🚢 Abertura dos Portos</h3>
+
+    <p>
+        Em janeiro de 1808, D. João determinou a abertura dos
+        portos brasileiros às nações amigas de Portugal.
+    </p>
+
+    <p>
+        A medida enfraqueceu o antigo sistema colonial de
+        exclusividade comercial e aumentou a presença de
+        comerciantes estrangeiros no Brasil.
+    </p>
+
+
+    <h3>🇵🇹 Brasil como Reino</h3>
+
+    <p>
+        Em 1815, o Brasil foi elevado à condição de Reino,
+        formando o Reino Unido de Portugal, Brasil e Algarves.
+    </p>
+
+    <p>
+        Essa transformação aumentou a importância política
+        do território brasileiro dentro da monarquia portuguesa.
+    </p>
+
+
+    <h3>🔥 Revolução Liberal do Porto</h3>
+
+    <p>
+        Em 1820 ocorreu em Portugal uma revolução liberal.
+        Os revolucionários exigiam uma Constituição e
+        o retorno do rei.
+    </p>
+
+    <p>
+        D. João VI retornou para Portugal em 1821,
+        deixando seu filho D. Pedro como príncipe regente
+        no Brasil.
+    </p>
+
+
+    <h3>👑 D. Pedro</h3>
+
+    <p>
+        D. Pedro recebeu ordens para retornar a Portugal.
+        Entretanto, grupos políticos brasileiros pressionaram
+        para que permanecesse no território.
+    </p>
+
+
+    <h3>📢 Dia do Fico</h3>
+
+    <p>
+        Em 9 de janeiro de 1822, D. Pedro anunciou que
+        permaneceria no Brasil.
+    </p>
+
+    <p>
+        O episódio ficou conhecido como Dia do Fico e
+        representou um importante passo no processo de
+        ruptura política com Portugal.
+    </p>
+
+
+    <h3>✉️ "Independência ou Morte"</h3>
+
+    <p>
+        Em 7 de setembro de 1822, D. Pedro declarou a
+        independência do Brasil, segundo a tradição histórica,
+        às margens do riacho do Ipiranga.
+    </p>
+
+    <p>
+        A famosa expressão "Independência ou Morte" ficou
+        associada ao episódio por meio da tradição histórica
+        e das representações posteriores.
+    </p>
+
+
+    <h3>⚔️ Guerras de Independência</h3>
+
+    <p>
+        A separação de Portugal não foi aceita imediatamente
+        em todo o território.
+    </p>
+
+    <p>
+        Houve conflitos especialmente em regiões onde
+        tropas portuguesas ou grupos favoráveis às Cortes
+        mantinham influência.
+    </p>
+
+    <h4>Principais regiões de conflito:</h4>
+
+    <ul>
+        <li>Bahia.</li>
+        <li>Maranhão.</li>
+        <li>Pará.</li>
+        <li>Piauí.</li>
+        <li>Ceará.</li>
+    </ul>
+
+
+    <h3>🪖 Batalha do Jenipapo</h3>
+
+    <p>
+        A Batalha do Jenipapo ocorreu em 1823, no Piauí,
+        e envolveu forças favoráveis à independência e
+        tropas ligadas à manutenção do domínio português.
+    </p>
+
+    <p>
+        O conflito é lembrado como um dos episódios importantes
+        da luta pela consolidação da independência brasileira.
+    </p>
+
+
+    <h3>🇧🇷 Primeiro Reinado</h3>
+
+    <p>
+        Após a independência, D. Pedro tornou-se D. Pedro I,
+        primeiro imperador do Brasil.
+    </p>
+
+    <p>
+        O novo governo precisou organizar instituições,
+        garantir o controle do território e obter
+        reconhecimento internacional.
+    </p>
+
+
+    <h3>📜 Constituição de 1824</h3>
+
+    <p>
+        Em 1824 foi outorgada a primeira Constituição do
+        Brasil independente.
+    </p>
+
+    <p>
+        A Constituição estabeleceu uma monarquia constitucional
+        e criou quatro poderes: Executivo, Legislativo,
+        Judiciário e Moderador.
+    </p>
+
+
+    <h3>🌎 Reconhecimento internacional</h3>
+
+    <p>
+        O reconhecimento da independência foi um processo
+        diplomático gradual.
+    </p>
+
+    <p>
+        Portugal reconheceu oficialmente a independência
+        brasileira em 1825, mediante negociações envolvendo
+        também interesses financeiros.
+    </p>
+
+
+    <h3>👥 Participação da população</h3>
+
+    <p>
+        A independência não foi simplesmente uma decisão
+        tomada por uma única pessoa.
+    </p>
+
+    <p>
+        Diferentes grupos participaram do processo, incluindo
+        elites políticas, comerciantes, militares, autoridades
+        locais, indígenas, negros livres, escravizados e
+        outros setores da população.
+    </p>
+
+
+    <h3>⚠️ A escravidão</h3>
+
+    <p>
+        Uma característica importante da independência brasileira
+        foi a manutenção da escravidão.
+    </p>
+
+    <p>
+        O novo Estado continuou utilizando amplamente o trabalho
+        de pessoas escravizadas, e a escravidão só seria abolida
+        décadas depois, em 1888.
+    </p>
+
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Separação política de Portugal.</li>
+        <li>Criação do Império do Brasil.</li>
+        <li>Coroação de D. Pedro I.</li>
+        <li>Formação de um Estado nacional independente.</li>
+        <li>Manutenção da monarquia.</li>
+        <li>Manutenção da escravidão.</li>
+        <li>Continuidade de diversas estruturas sociais.</li>
+        <li>Conflitos para consolidar a independência.</li>
+        <li>Necessidade de reconhecimento internacional.</li>
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>💡 Você sabia?</h3>
+
+        <p>
+            A independência brasileira foi diferente de muitos
+            processos de independência da América espanhola.
+            O Brasil manteve a monarquia e permaneceu
+            territorialmente mais integrado, embora tenham
+            ocorrido importantes conflitos regionais.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- REVOLUÇÃO INDUSTRIAL -->
+<!-- ================================================= -->
+
+<section id="industrial" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>🏭 Revolução Industrial</h2>
+
+    <div class="info">
+        <strong>Primeira Revolução Industrial:</strong>
+        século XVIII
+        <br>
+        <strong>Local de início:</strong>
+        Grã-Bretanha
+    </div>
+
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A Revolução Industrial foi um conjunto de transformações
+        tecnológicas, econômicas, sociais e culturais que alterou
+        profundamente a maneira como as sociedades produziam
+        bens e organizavam o trabalho.
+    </p>
+
+    <p>
+        A industrialização começou na Grã-Bretanha durante
+        o século XVIII e posteriormente se espalhou para
+        outras regiões da Europa, América e mundo.
+    </p>
+
+
+    <h3>🇬🇧 Por que começou na Grã-Bretanha?</h3>
+
+    <p>
+        A Grã-Bretanha possuía uma combinação de fatores
+        favoráveis à industrialização.
+    </p>
+
+    <ul>
+        <li>Disponibilidade de carvão mineral.</li>
+        <li>Reservas de minério de ferro.</li>
+        <li>Mercado consumidor em expansão.</li>
+        <li>Capital acumulado pelo comércio.</li>
+        <li>Expansão marítima.</li>
+        <li>Desenvolvimento agrícola.</li>
+        <li>Estabilidade institucional relativa.</li>
+        <li>Disponibilidade de mão de obra.</li>
+    </ul>
+
+
+    <h3>🌾 Revolução Agrícola</h3>
+
+    <p>
+        Antes da industrialização, mudanças na agricultura
+        contribuíram para aumentar a produtividade e modificar
+        a organização das áreas rurais.
+    </p>
+
+    <p>
+        O aumento da produtividade agrícola ajudou a sustentar
+        uma população crescente e contribuiu para a migração
+        de trabalhadores para as cidades.
+    </p>
+
+
+    <h3>⚙️ Máquinas</h3>
+
+    <p>
+        A utilização de máquinas aumentou a velocidade de
+        produção e modificou profundamente o trabalho artesanal.
+    </p>
+
+
+    <h3>💨 Máquina a vapor</h3>
+
+    <p>
+        O aperfeiçoamento das máquinas a vapor permitiu
+        utilizar energia de maneira mais eficiente em
+        fábricas, minas e transportes.
+    </p>
+
+
+    <h3>🧵 Indústria têxtil</h3>
+
+    <p>
+        A produção de tecidos foi uma das áreas pioneiras
+        da industrialização.
+    </p>
+
+    <p>
+        Máquinas de fiar e teares mecanizados aumentaram
+        significativamente a quantidade de tecidos produzidos.
+    </p>
+
+
+    <h3>⛏️ Carvão e ferro</h3>
+
+    <p>
+        O carvão mineral tornou-se uma importante fonte de
+        energia, enquanto o ferro foi fundamental para máquinas,
+        ferramentas, ferrovias e estruturas industriais.
+    </p>
+
+
+    <h3>🚂 Revolução dos transportes</h3>
+
+    <p>
+        A industrialização estimulou o desenvolvimento
+        de novos meios de transporte.
+    </p>
+
+    <ul>
+        <li>Ferrovias.</li>
+        <li>Locomotivas a vapor.</li>
+        <li>Navios a vapor.</li>
+        <li>Canais.</li>
+        <li>Estradas melhoradas.</li>
+    </ul>
+
+
+    <h3>🚂 Ferrovias</h3>
+
+    <p>
+        As ferrovias permitiram transportar grandes quantidades
+        de matérias-primas, produtos e pessoas em velocidades
+        superiores às disponíveis anteriormente.
+    </p>
+
+
+    <h3>🏭 Sistema fabril</h3>
+
+    <p>
+        O sistema fabril concentrou máquinas e trabalhadores
+        em grandes estabelecimentos de produção.
+    </p>
+
+    <p>
+        Isso alterou a relação entre trabalhador e produção.
+        Em vez de controlar todo o processo produtivo,
+        muitos trabalhadores passaram a executar tarefas
+        específicas dentro de uma divisão de trabalho.
+    </p>
+
+
+    <h3>👷 Surgimento do proletariado industrial</h3>
+
+    <p>
+        O crescimento das fábricas contribuiu para o surgimento
+        de uma grande classe de trabalhadores assalariados
+        dependentes da venda de sua força de trabalho.
+    </p>
+
+
+    <h3>⚠️ Condições de trabalho</h3>
+
+    <p>
+        Durante os primeiros períodos da industrialização,
+        muitos trabalhadores enfrentavam jornadas extremamente
+        longas, salários baixos e condições perigosas.
+    </p>
+
+    <p>
+        Mulheres e crianças também trabalhavam em muitas fábricas,
+        minas e oficinas.
+    </p>
+
+
+    <h3>👶 Trabalho infantil</h3>
+
+    <p>
+        Crianças eram empregadas em diferentes atividades
+        industriais, especialmente porque podiam receber
+        salários menores e realizar determinadas tarefas
+        em espaços pequenos.
+    </p>
+
+    <p>
+        Com o tempo, movimentos sociais e reformas legais
+        contribuíram para limitar o trabalho infantil.
+    </p>
+
+
+    <h3>🏙️ Urbanização</h3>
+
+    <p>
+        A expansão industrial provocou forte crescimento
+        das cidades.
+    </p>
+
+    <p>
+        Milhões de pessoas migraram das áreas rurais para
+        regiões urbanas em busca de emprego.
+    </p>
+
+
+    <h3>🏚️ Problemas urbanos</h3>
+
+    <ul>
+        <li>Moradias superlotadas.</li>
+        <li>Falta de saneamento.</li>
+        <li>Doenças.</li>
+        <li>Poluição.</li>
+        <li>Acidentes de trabalho.</li>
+        <li>Desigualdade social.</li>
+        <li>Jornadas de trabalho extensas.</li>
+    </ul>
+
+
+    <h3>✊ Movimentos trabalhistas</h3>
+
+    <p>
+        As dificuldades enfrentadas pelos trabalhadores
+        contribuíram para o surgimento de movimentos
+        organizados em defesa de melhores condições de trabalho.
+    </p>
+
+    <p>
+        Surgiram sindicatos, greves e diferentes correntes
+        políticas e sociais ligadas às questões trabalhistas.
+    </p>
+
+
+    <h3>📚 Socialismo</h3>
+
+    <p>
+        As transformações provocadas pela industrialização
+        contribuíram para o desenvolvimento de diferentes
+        correntes socialistas.
+    </p>
+
+    <p>
+        Pensadores como Karl Marx e Friedrich Engels analisaram
+        o capitalismo industrial e as relações entre burguesia
+        e proletariado.
+    </p>
+
+
+    <h3>🌎 Segunda Revolução Industrial</h3>
+
+    <p>
+        A partir da segunda metade do século XIX, novas
+        transformações industriais ocorreram.
+    </p>
+
+    <ul>
+        <li>Eletricidade.</li>
+        <li>Petróleo.</li>
+        <li>Aço.</li>
+        <li>Indústria química.</li>
+        <li>Motor de combustão.</li>
+        <li>Telefone.</li>
+        <li>Novos meios de transporte.</li>
+    </ul>
+
+
+    <h3>🌱 Impactos ambientais</h3>
+
+    <p>
+        A industrialização aumentou significativamente
+        a utilização de combustíveis fósseis e a emissão
+        de poluentes.
+    </p>
+
+    <p>
+        O crescimento industrial contribuiu para problemas
+        ambientais que se tornariam cada vez mais importantes
+        nos séculos seguintes.
+    </p>
+
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Industrialização.</li>
+        <li>Urbanização acelerada.</li>
+        <li>Crescimento do capitalismo.</li>
+        <li>Expansão do trabalho assalariado.</li>
+        <li>Fortalecimento da burguesia industrial.</li>
+        <li>Crescimento do proletariado.</li>
+        <li>Movimentos trabalhistas.</li>
+        <li>Avanços tecnológicos.</li>
+        <li>Expansão das ferrovias.</li>
+        <li>Transformações ambientais.</li>
+        <li>Mudanças profundas no cotidiano.</li>
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>💡 Importância histórica</h3>
+
+        <p>
+            A Revolução Industrial não significou apenas
+            o surgimento das fábricas. Ela modificou a economia,
+            as relações de trabalho, as cidades, os transportes,
+            o consumo, a política e a própria organização
+            da sociedade moderna.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- GUERRA FRIA -->
+<!-- ================================================= -->
+
+<section id="guerrafria" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>☢️ Guerra Fria</h2>
+
+    <div class="info">
+        <strong>Período aproximado:</strong>
+        1947 – 1991
+    </div>
+
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A Guerra Fria foi uma disputa política, econômica,
+        ideológica, tecnológica e militar entre os Estados
+        Unidos e a União Soviética após a Segunda Guerra Mundial.
+    </p>
+
+    <p>
+        O conflito recebeu o nome de "Guerra Fria" porque
+        Estados Unidos e União Soviética não entraram em uma
+        guerra direta e total entre si.
+    </p>
+
+    <p>
+        Entretanto, ambos participaram de disputas indiretas,
+        corridas armamentistas, conflitos por influência,
+        propaganda e guerras por procuração.
+    </p>
+
+
+    <h3>🇺🇸 Estados Unidos</h3>
+
+    <p>
+        Os Estados Unidos lideravam o bloco capitalista.
+        O país defendia uma economia baseada na propriedade
+        privada e possuía enorme influência econômica,
+        política e militar.
+    </p>
+
+
+    <h3>☭ União Soviética</h3>
+
+    <p>
+        A União Soviética liderava o bloco socialista.
+        Seu sistema político e econômico era baseado em
+        uma estrutura de partido único e planejamento estatal
+        da economia.
+    </p>
+
+
+    <h3>🌎 Mundo bipolar</h3>
+
+    <p>
+        Durante boa parte da Guerra Fria, o sistema internacional
+        ficou marcado pela existência de duas grandes
+        superpotências.
+    </p>
+
+    <p>
+        Muitos países procuraram aproximar-se de um dos blocos,
+        enquanto outros buscaram manter uma política de
+        não alinhamento.
+    </p>
+
+
+    <h3>🤝 Plano Marshall</h3>
+
+    <p>
+        Os Estados Unidos lançaram o Plano Marshall para
+        auxiliar a reconstrução econômica de países europeus
+        após a Segunda Guerra Mundial.
+    </p>
+
+    <p>
+        O programa também tinha importância estratégica
+        na disputa política da Guerra Fria.
+    </p>
+
+
+    <h3>🛡️ OTAN</h3>
+
+    <p>
+        Em 1949 foi criada a Organização do Tratado do Atlântico
+        Norte, uma aliança militar liderada pelos Estados Unidos.
+    </p>
+
+
+    <h3>☭ Pacto de Varsóvia</h3>
+
+    <p>
+        Em 1955, a União Soviética e seus aliados do Leste
+        Europeu criaram o Pacto de Varsóvia.
+    </p>
+
+
+    <h3>☢️ Corrida nuclear</h3>
+
+    <p>
+        Estados Unidos e União Soviética desenvolveram enormes
+        arsenais nucleares.
+    </p>
+
+    <p>
+        A possibilidade de uma guerra nuclear criou o conceito
+        de destruição mútua assegurada, no qual um ataque
+        nuclear poderia provocar uma resposta capaz de destruir
+        ambos os lados.
+    </p>
+
+
+    <h3>🚀 Corrida espacial</h3>
+
+    <p>
+        A competição entre as superpotências também ocorreu
+        no campo científico e tecnológico.
+    </p>
+
+    <ul>
+        <li>1957 — lançamento do Sputnik.</li>
+        <li>1961 — Yuri Gagarin torna-se o primeiro ser humano no espaço.</li>
+        <li>1969 — missão Apollo 11 realiza o primeiro pouso humano na Lua.</li>
+        <li>Décadas seguintes — desenvolvimento de novas tecnologias espaciais.</li>
+    </ul>
+
+
+    <h3>🧱 Muro de Berlim</h3>
+
+    <p>
+        O Muro de Berlim foi construído em 1961 pelo governo
+        da Alemanha Oriental para impedir a passagem de pessoas
+        para Berlim Ocidental.
+    </p>
+
+    <p>
+        O muro tornou-se um dos principais símbolos da divisão
+        ideológica da Europa.
+    </p>
+
+
+    <h3>🇩🇪 Alemanha dividida</h3>
+
+    <p>
+        Após a Segunda Guerra Mundial, a Alemanha foi dividida
+        em áreas de ocupação e posteriormente surgiram dois
+        Estados alemães.
+    </p>
+
+    <ul>
+        <li>República Federal da Alemanha — Alemanha Ocidental.</li>
+        <li>República Democrática Alemã — Alemanha Oriental.</li>
+    </ul>
+
+
+    <h3>🇨🇺 Revolução Cubana</h3>
+
+    <p>
+        Em 1959, a Revolução Cubana derrubou o governo de
+        Fulgencio Batista.
+    </p>
+
+    <p>
+        Posteriormente, o governo liderado por Fidel Castro
+        aproximou-se da União Soviética.
+    </p>
+
+
+    <h3>🚀 Crise dos Mísseis de Cuba</h3>
+
+    <p>
+        Em 1962, a descoberta de mísseis soviéticos em Cuba
+        provocou uma grave crise entre Estados Unidos e
+        União Soviética.
+    </p>
+
+    <p>
+        Durante vários dias, o mundo esteve sob forte tensão
+        diante do risco de uma guerra nuclear.
+    </p>
+
+
+    <h3>🇰🇷 Guerra da Coreia</h3>
+
+    <p>
+        A Guerra da Coreia ocorreu entre 1950 e 1953.
+        O conflito envolveu a Coreia do Norte e a Coreia
+        do Sul, com participação direta ou indireta das
+        grandes potências.
+    </p>
+
+
+    <h3>🇻🇳 Guerra do Vietnã</h3>
+
+    <p>
+        A Guerra do Vietnã tornou-se um dos principais conflitos
+        relacionados à Guerra Fria.
+    </p>
+
+    <p>
+        Os Estados Unidos apoiaram o Vietnã do Sul,
+        enquanto o Vietnã do Norte recebeu apoio da União
+        Soviética e da China.
+    </p>
+
+
+    <h3>🕵️ Espionagem</h3>
+
+    <p>
+        Serviços de inteligência desempenharam papel importante
+        durante a Guerra Fria.
+    </p>
+
+    <p>
+        A CIA, nos Estados Unidos, e a KGB, na União Soviética,
+        tornaram-se símbolos da disputa de inteligência entre
+        os dois blocos.
+    </p>
+
+
+    <h3>📺 Propaganda</h3>
+
+    <p>
+        Estados Unidos e União Soviética utilizaram jornais,
+        rádio, televisão, cinema, literatura e outras formas
+        de comunicação para defender seus sistemas políticos.
+    </p>
+
+
+    <h3>🧱 Queda do Muro de Berlim</h3>
+
+    <p>
+        Em 9 de novembro de 1989, a abertura das fronteiras
+        levou à queda do Muro de Berlim.
+    </p>
+
+    <p>
+        O acontecimento tornou-se um dos maiores símbolos
+        do enfraquecimento dos regimes socialistas do Leste
+        Europeu.
+    </p>
+
+
+    <h3>☭ Dissolução da União Soviética</h3>
+
+    <p>
+        Em 1991, a União Soviética foi dissolvida.
+        Esse acontecimento é tradicionalmente considerado
+        o marco final da Guerra Fria.
+    </p>
+
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Divisão política do mundo em blocos.</li>
+        <li>Corrida nuclear.</li>
+        <li>Corrida espacial.</li>
+        <li>Guerras por procuração.</li>
+        <li>Criação de alianças militares.</li>
+        <li>Disputas ideológicas.</li>
+        <li>Divisão da Alemanha.</li>
+        <li>Queda do Muro de Berlim.</li>
+        <li>Fim da União Soviética.</li>
+        <li>Predominância dos Estados Unidos no cenário internacional.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- OUTROS TEMAS -->
+<!-- ================================================= -->
+
+<section id="diversos" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>📚 Outros Temas Históricos</h2>
+
+    <p>
+        Explore diferentes períodos, civilizações, revoluções
+        e acontecimentos que marcaram a história da humanidade.
+    </p>
+
+    <div class="busca">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="🔎 Pesquisar tema..."
+            onkeyup="pesquisarTemas()"
+        >
+
+    </div>
+
+
+    <div class="temas">
+
+
+        <article class="tema" data-nome="egito antigo">
+
+            <span class="icone">🏺</span>
+
+            <h3>Egito Antigo</h3>
+
+            <p>
+                Faraós, pirâmides, religião, escrita,
+                sociedade e rio Nilo.
+            </p>
+
+            <button onclick="abrirAba('egito')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="grecia antiga">
+
+            <span class="icone">🏛️</span>
+
+            <h3>Grécia Antiga</h3>
+
+            <p>
+                Atenas, Esparta, filosofia, democracia,
+                mitologia, guerras e cultura.
+            </p>
+
+            <button onclick="abrirAba('grecia')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="roma antiga">
+
+            <span class="icone">🏛️</span>
+
+            <h3>Roma Antiga</h3>
+
+            <p>
+                República, Império, exército, sociedade,
+                expansão territorial e cultura.
+            </p>
+
+            <button onclick="abrirAba('roma')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="idade media medieval">
+
+            <span class="icone">🏰</span>
+
+            <h3>Idade Média</h3>
+
+            <p>
+                Feudalismo, Igreja, reinos, Cruzadas,
+                comércio, cidades e cultura.
+            </p>
+
+            <button onclick="abrirAba('medieval')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="grandes navegacoes">
+
+            <span class="icone">🧭</span>
+
+            <h3>Grandes Navegações</h3>
+
+            <p>
+                Portugal, Espanha, comércio marítimo,
+                exploração e expansão europeia.
+            </p>
+
+            <button onclick="abrirAba('navegacoes')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="independencia estados unidos">
+
+            <span class="icone">🇺🇸</span>
+
+            <h3>Independência dos EUA</h3>
+
+            <p>
+                Treze Colônias, impostos, guerra e
+                Declaração de Independência.
+            </p>
+
+            <button onclick="abrirAba('eua')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="revolucao russa">
+
+            <span class="icone">🇷🇺</span>
+
+            <h3>Revolução Russa</h3>
+
+            <p>
+                Czarismo, revoluções de 1917, Lenin,
+                guerra civil e URSS.
+            </p>
+
+            <button onclick="abrirAba('russa')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="era vargas">
+
+            <span class="icone">🇧🇷</span>
+
+            <h3>Era Vargas</h3>
+
+            <p>
+                Vargas, industrialização, trabalhismo,
+                Estado Novo e Segunda Guerra Mundial.
+            </p>
+
+            <button onclick="abrirAba('vargas')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="ditadura militar brasileira">
+
+            <span class="icone">🇧🇷</span>
+
+            <h3>Ditadura Militar</h3>
+
+            <p>
+                Golpe de 1964, censura, repressão,
+                economia e redemocratização.
+            </p>
+
+            <button onclick="abrirAba('ditadura')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="descolonizacao africa">
+
+            <span class="icone">🌍</span>
+
+            <h3>Descolonização da África</h3>
+
+            <p>
+                Nacionalismo, independências, conflitos
+                e formação dos novos Estados africanos.
+            </p>
+
+            <button onclick="abrirAba('africa')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="revolucao chinesa china">
+
+            <span class="icone">🇨🇳</span>
+
+            <h3>Revolução Chinesa</h3>
+
+            <p>
+                Guerra civil, Mao Tsé-Tung e criação
+                da República Popular da China.
+            </p>
+
+            <button onclick="abrirAba('china')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="renascimento">
+
+            <span class="icone">🎨</span>
+
+            <h3>Renascimento</h3>
+
+            <p>
+                Arte, ciência, humanismo e transformações
+                culturais europeias.
+            </p>
+
+            <button onclick="abrirAba('renascimento')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="reforma protestante">
+
+            <span class="icone">⛪</span>
+
+            <h3>Reforma Protestante</h3>
+
+            <p>
+                Lutero, 95 Teses, conflitos religiosos,
+                novas igrejas e Contrarreforma.
+            </p>
+
+            <button onclick="abrirAba('reforma')">
+                Ler mais →
+            </button>
+
+        </article>
+
+
+        <article class="tema" data-nome="era napoleonica napoleao">
+
+            <span class="icone">👑</span>
+
+            <h3>Era Napoleônica</h3>
+
+            <p>
+                Napoleão Bonaparte, Império Francês,
+                guerras, Rússia e Waterloo.
+            </p>
+
+            <button onclick="abrirAba('napoleao')">
+                Ler mais →
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- EGITO ANTIGO -->
+<!-- ================================================= -->
+
+<section id="egito" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🏺 Egito Antigo</h2>
+
+    <div class="info">
+        <strong>Período aproximado:</strong>
+        3100 a.C. – 30 a.C.
+    </div>
+
+
+    <h3>📖 Introdução</h3>
+
+    <p>
+        A civilização egípcia desenvolveu-se ao longo do
+        rio Nilo, no nordeste da África.
+    </p>
+
+    <p>
+        Durante milhares de anos, diferentes dinastias
+        governaram o Egito, formando uma das civilizações
+        mais duradouras da Antiguidade.
+    </p>
+
+
+    <h3>🌊 O rio Nilo</h3>
+
+    <p>
+        O rio Nilo foi essencial para a agricultura,
+        transporte e sobrevivência das populações egípcias.
+    </p>
+
+    <p>
+        As cheias periódicas depositavam sedimentos férteis
+        nas margens do rio, favorecendo o cultivo.
+    </p>
+
+
+    <h3>👑 Faraó</h3>
+
+    <p>
+        O faraó ocupava a posição central do sistema político
+        e religioso egípcio.
+    </p>
+
+    <p>
+        O poder do faraó estava relacionado à organização
+        administrativa, militar e religiosa do Estado.
+    </p>
+
+
+    <h3>🏺 Sociedade egípcia</h3>
+
+    <ul>
+        <li>Faraó.</li>
+        <li>Família real.</li>
+        <li>Sacerdotes.</li>
+        <li>Altos funcionários.</li>
+        <li>Escribas.</li>
+        <li>Soldados.</li>
+        <li>Artesãos.</li>
+        <li>Camponeses.</li>
+        <li>Servos e pessoas escravizadas em diferentes contextos.</li>
+    </ul>
+
+
+    <h3>✍️ Escrita</h3>
+
+    <p>
+        Os egípcios desenvolveram diferentes sistemas de escrita.
+        Os hieróglifos são a forma mais conhecida.
+    </p>
+
+    <p>
+        Os escribas desempenhavam funções importantes,
+        registrando impostos, documentos administrativos,
+        textos religiosos e outros assuntos.
+    </p>
+
+
+    <h3>📜 Papiro</h3>
+
+    <p>
+        O papiro, produzido a partir de uma planta que crescia
+        nas margens do Nilo, era utilizado para produzir
+        um importante material de escrita.
+    </p>
+
+
+    <h3>🔺 Pirâmides</h3>
+
+    <p>
+        As pirâmides foram grandes monumentos funerários.
+        O complexo de Gizé abriga algumas das mais famosas.
+    </p>
+
+    <p>
+        A Grande Pirâmide de Gizé foi construída durante
+        o reinado do faraó Quéops e é a única das Sete
+        Maravilhas do Mundo Antigo que permanece em grande
+        parte preservada.
+    </p>
+
+
+    <h3>⚰️ Mumificação</h3>
+
+    <p>
+        A mumificação estava relacionada às crenças egípcias
+        sobre a morte e a continuidade da existência.
+    </p>
+
+    <p>
+        O processo podia envolver técnicas complexas de
+        preservação do corpo e preparação funerária.
+    </p>
+
+
+    <h3>☀️ Religião</h3>
+
+    <p>
+        A religião egípcia era composta por diversas divindades
+        e tradições que mudaram ao longo de milhares de anos.
+    </p>
+
+    <ul>
+        <li>Rá.</li>
+        <li>Osíris.</li>
+        <li>Ísis.</li>
+        <li>Hórus.</li>
+        <li>Anúbis.</li>
+        <li>Thoth.</li>
+        <li>Hathor.</li>
+    </ul>
+
+
+    <h3>⚔️ Exército</h3>
+
+    <p>
+        O exército egípcio desempenhou papel importante na
+        defesa das fronteiras e na expansão territorial.
+    </p>
+
+
+    <h3>🏛️ Templos</h3>
+
+    <p>
+        Templos eram importantes centros religiosos,
+        econômicos e administrativos.
+    </p>
+
+
+    <h3>👸 Cleópatra VII</h3>
+
+    <p>
+        Cleópatra VII foi uma das últimas governantes da
+        dinastia ptolemaica.
+    </p>
+
+    <p>
+        Seu governo ocorreu em um período de crescente
+        influência romana sobre o Egito.
+    </p>
+
+
+    <h3>🇷🇴 Domínio romano</h3>
+
+    <p>
+        Em 30 a.C., após a derrota de Cleópatra VII e Marco
+        Antônio, o Egito passou a fazer parte do domínio romano.
+    </p>
+
+
+    <h3>📌 Legado</h3>
+
+    <ul>
+        <li>Arquitetura monumental.</li>
+        <li>Conhecimentos matemáticos.</li>
+        <li>Conhecimentos astronômicos.</li>
+        <li>Desenvolvimento da escrita.</li>
+        <li>Técnicas de engenharia.</li>
+        <li>Práticas médicas.</li>
+        <li>Influência cultural duradoura.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- GRÉCIA ANTIGA -->
+<!-- ================================================= -->
+
+<section id="grecia" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🏛️ Grécia Antiga</h2>
+
+
+    <h3>📖 Introdução</h3>
+
+    <p>
+        A Grécia Antiga foi formada por diversas comunidades
+        e cidades-Estado espalhadas pela península Balcânica,
+        ilhas do mar Egeu e outras regiões do Mediterrâneo.
+    </p>
+
+    <p>
+        Os gregos desenvolveram importantes contribuições
+        para filosofia, política, matemática, arte, literatura,
+        arquitetura, teatro e ciência.
+    </p>
+
+
+    <h3>🏛️ As pólis</h3>
+
+    <p>
+        As cidades-Estado gregas, conhecidas como pólis,
+        possuíam governos, leis, instituições e tradições
+        próprias.
+    </p>
+
+    <p>
+        Atenas e Esparta foram duas das pólis mais conhecidas,
+        mas existiram muitas outras.
+    </p>
+
+
+    <h3>🏛️ Atenas</h3>
+
+    <p>
+        Atenas desenvolveu instituições democráticas,
+        especialmente durante o século V a.C.
+    </p>
+
+    <p>
+        A democracia ateniense era direta e limitada:
+        somente determinados cidadãos homens participavam
+        da vida política.
+    </p>
+
+
+    <h3>⚔️ Esparta</h3>
+
+    <p>
+        Esparta possuía uma organização social e política
+        fortemente associada à preparação militar.
+    </p>
+
+    <p>
+        A sociedade espartana dependia do trabalho de
+        populações submetidas, especialmente os hilotas.
+    </p>
+
+
+    <h3>⚔️ Guerras Médicas</h3>
+
+    <p>
+        As Guerras Médicas foram conflitos entre cidades
+        gregas e o Império Persa durante os séculos V e VI a.C.
+    </p>
+
+
+    <h3>⚔️ Guerra do Peloponeso</h3>
+
+    <p>
+        A Guerra do Peloponeso ocorreu entre Atenas e seus
+        aliados e Esparta e seus aliados.
+    </p>
+
+    <p>
+        O conflito enfraqueceu diversas cidades gregas.
+    </p>
+
+
+    <h3>👑 Alexandre, o Grande</h3>
+
+    <p>
+        Alexandre da Macedônia conquistou um enorme território
+        durante o século IV a.C.
+    </p>
+
+    <p>
+        Suas conquistas contribuíram para a expansão da cultura
+        grega e para o desenvolvimento do período helenístico.
+    </p>
+
+
+    <h3>🧠 Filosofia</h3>
+
+    <p>
+        A filosofia grega produziu alguns dos pensadores
+        mais influentes da história.
+    </p>
+
+    <ul>
+        <li>Sócrates.</li>
+        <li>Platão.</li>
+        <li>Aristóteles.</li>
+        <li>Epicuro.</li>
+        <li>Heráclito.</li>
+        <li>Demócrito.</li>
+    </ul>
+
+
+    <h3>🧮 Matemática</h3>
+
+    <p>
+        Matemáticos gregos desenvolveram métodos e conceitos
+        que influenciaram profundamente a matemática posterior.
+    </p>
+
+    <p>
+        Euclides, Pitágoras e Arquimedes estão entre os
+        nomes mais conhecidos.
+    </p>
+
+
+    <h3>🎭 Teatro</h3>
+
+    <p>
+        O teatro grego desenvolveu formas de tragédia e comédia.
+    </p>
+
+    <p>
+        Autores como Sófocles, Ésquilo, Eurípides e Aristófanes
+        deixaram obras importantes.
+    </p>
+
+
+    <h3>🏟️ Jogos Olímpicos</h3>
+
+    <p>
+        Os Jogos Olímpicos antigos eram realizados em Olímpia
+        em homenagem a Zeus.
+    </p>
+
+    <p>
+        Os jogos possuíam caráter religioso e reuniam
+        participantes de diferentes comunidades gregas.
+    </p>
+
+
+    <h3>🏺 Mitologia grega</h3>
+
+    <p>
+        A mitologia grega reunia histórias sobre deuses,
+        heróis, monstros e acontecimentos relacionados
+        à origem do mundo e dos seres humanos.
+    </p>
+
+    <ul>
+        <li>Zeus.</li>
+        <li>Hera.</li>
+        <li>Poseidon.</li>
+        <li>Atena.</li>
+        <li>Apolo.</li>
+        <li>Afrodite.</li>
+        <li>Ares.</li>
+        <li>Artemis.</li>
+        <li>Hermes.</li>
+    </ul>
+
+
+    <h3>🏛️ Arquitetura</h3>
+
+    <p>
+        A arquitetura grega utilizava diferentes ordens,
+        entre elas dórica, jônica e coríntia.
+    </p>
+
+    <p>
+        O Partenon, localizado em Atenas, é um dos exemplos
+        mais conhecidos da arquitetura grega clássica.
+    </p>
+
+
+    <h3>📚 Literatura</h3>
+
+    <p>
+        Obras atribuídas a Homero, como a Ilíada e a Odisseia,
+        tornaram-se fundamentais para a tradição literária
+        ocidental.
+    </p>
+
+
+    <h3>📌 Legado</h3>
+
+    <ul>
+        <li>Filosofia.</li>
+        <li>Democracia ateniense.</li>
+        <li>Matemática.</li>
+        <li>Teatro.</li>
+        <li>Arquitetura.</li>
+        <li>Literatura.</li>
+        <li>Historiografia.</li>
+        <li>Ciência.</li>
+        <li>Mitologia.</li>
+        <li>Arte.</li>
+    </ul>
+
+
+    <div class="destaque">
+
+        <h3>💡 Importante</h3>
+
+        <p>
+            A democracia ateniense foi uma experiência histórica
+            importante, mas era muito diferente das democracias
+            contemporâneas. Grande parte da população — incluindo
+            mulheres, escravizados e estrangeiros — não possuía
+            participação política.
+        </p>
+
+    </div>
+
+</section>
+<!-- ================================================= -->
+<!-- PARTE 3 — TEMAS HISTÓRICOS AMPLIADOS -->
+<!-- ================================================= -->
+
+
+<!-- ================================================= -->
+<!-- REVOLUÇÃO RUSSA -->
+<!-- ================================================= -->
+
+<section id="russa" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🇷🇺 Revolução Russa</h2>
+
+    <div class="info">
+        <strong>Período:</strong> 1917
+    </div>
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A Revolução Russa foi um conjunto de acontecimentos
+        políticos e sociais que derrubaram o regime czarista
+        e levaram os bolcheviques ao poder em 1917.
+    </p>
+
+    <p>
+        A revolução transformou profundamente a Rússia e teve
+        enorme influência na política mundial durante o século XX.
+        Posteriormente, contribuiu para a criação da União das
+        Repúblicas Socialistas Soviéticas, a URSS.
+    </p>
+
+    <h3>👑 O Império Russo</h3>
+
+    <p>
+        Antes da revolução, a Rússia era governada pelo czar
+        Nicolau II. O regime era uma monarquia autocrática,
+        na qual o czar concentrava grande parte do poder político.
+    </p>
+
+    <p>
+        A sociedade russa apresentava profundas desigualdades.
+        Grande parte da população era formada por camponeses,
+        enquanto uma pequena parcela da sociedade concentrava
+        grande quantidade de terras e riquezas.
+    </p>
+
+    <h3>🌾 Os camponeses</h3>
+
+    <p>
+        A população camponesa representava a maioria da população
+        russa. Muitos camponeses viviam em condições difíceis,
+        enfrentando pobreza, falta de terras e baixa produtividade
+        agrícola.
+    </p>
+
+    <h3>🏭 Industrialização</h3>
+
+    <p>
+        No final do século XIX e início do século XX, a Rússia
+        começou a passar por um processo de industrialização.
+        Grandes centros urbanos, como São Petersburgo e Moscou,
+        concentraram fábricas e trabalhadores.
+    </p>
+
+    <p>
+        Os operários enfrentavam jornadas longas, baixos salários
+        e condições precárias de trabalho.
+    </p>
+
+    <h3>⚔️ Primeira Guerra Mundial</h3>
+
+    <p>
+        A participação russa na Primeira Guerra Mundial agravou
+        problemas que já existiam. O país sofreu enormes perdas
+        humanas, dificuldades econômicas e falta de alimentos.
+    </p>
+
+    <h3>🔥 Revolução de Fevereiro</h3>
+
+    <p>
+        Em fevereiro de 1917, protestos e greves cresceram
+        rapidamente em Petrogrado. Soldados passaram a apoiar
+        parte dos manifestantes.
+    </p>
+
+    <p>
+        Diante da crise, Nicolau II abdicou. O governo provisório
+        assumiu o poder.
+    </p>
+
+    <h3>🏛️ Governo Provisório</h3>
+
+    <p>
+        O Governo Provisório pretendia estabelecer uma nova
+        organização política para a Rússia, mas decidiu continuar
+        participando da Primeira Guerra Mundial.
+    </p>
+
+    <p>
+        Essa decisão aumentou a insatisfação popular.
+    </p>
+
+    <h3>☭ Bolcheviques</h3>
+
+    <p>
+        Os bolcheviques eram uma corrente revolucionária do
+        movimento socialista russo. Vladimir Lenin tornou-se
+        uma das principais lideranças do grupo.
+    </p>
+
+    <h3>🔥 Revolução de Outubro</h3>
+
+    <p>
+        Em outubro de 1917, os bolcheviques organizaram uma
+        insurreição e tomaram importantes pontos estratégicos
+        de Petrogrado.
+    </p>
+
+    <p>
+        O Governo Provisório foi derrubado e os bolcheviques
+        passaram a controlar o governo.
+    </p>
+
+    <h3>⚔️ Guerra Civil Russa</h3>
+
+    <p>
+        Após a tomada do poder, a Rússia entrou em uma guerra
+        civil entre diferentes grupos políticos e militares.
+    </p>
+
+    <p>
+        Os bolcheviques organizaram o Exército Vermelho,
+        enquanto seus adversários eram associados principalmente
+        às forças chamadas de Exército Branco.
+    </p>
+
+    <h3>📜 Tratado de Brest-Litovsk</h3>
+
+    <p>
+        Em 1918, o governo bolchevique assinou o Tratado de
+        Brest-Litovsk com as Potências Centrais, retirando a
+        Rússia da Primeira Guerra Mundial.
+    </p>
+
+    <h3>☭ Criação da URSS</h3>
+
+    <p>
+        Em 1922 foi criada a União das Repúblicas Socialistas
+        Soviéticas, reunindo diferentes repúblicas sob um
+        governo socialista.
+    </p>
+
+    <h3>👤 Vladimir Lenin</h3>
+
+    <p>
+        Lenin foi uma das principais lideranças da Revolução
+        Russa e comandou o governo soviético nos primeiros anos
+        após a revolução.
+    </p>
+
+    <h3>👤 Josef Stalin</h3>
+
+    <p>
+        Após a morte de Lenin, ocorreu uma disputa pelo poder.
+        Josef Stalin gradualmente consolidou sua posição e,
+        posteriormente, tornou-se o principal líder soviético.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Fim do czarismo.</li>
+        <li>Criação de um governo revolucionário.</li>
+        <li>Guerra civil.</li>
+        <li>Criação da URSS.</li>
+        <li>Transformações econômicas e sociais.</li>
+        <li>Expansão internacional das ideias comunistas.</li>
+        <li>Formação de um novo centro de poder mundial.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ERA VARGAS -->
+<!-- ================================================= -->
+
+<section id="vargas" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🇧🇷 Era Vargas</h2>
+
+    <div class="info">
+        <strong>Período:</strong> 1930 – 1945
+    </div>
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A Era Vargas corresponde ao período em que Getúlio Vargas
+        exerceu papel central na política brasileira, principalmente
+        entre 1930 e 1945.
+    </p>
+
+    <p>
+        Seu governo foi marcado por mudanças econômicas,
+        industrialização, criação de leis trabalhistas, centralização
+        política e diferentes níveis de autoritarismo.
+    </p>
+
+    <h3>👤 Getúlio Vargas</h3>
+
+    <p>
+        Getúlio Vargas nasceu no Rio Grande do Sul e tornou-se
+        uma das figuras políticas mais importantes da história
+        brasileira do século XX.
+    </p>
+
+    <h3>🔥 Revolução de 1930</h3>
+
+    <p>
+        Em 1930, uma aliança política liderada por Vargas chegou
+        ao poder após uma crise que envolveu a sucessão presidencial
+        e a eleição de Júlio Prestes.
+    </p>
+
+    <p>
+        O movimento encerrou a chamada Primeira República e iniciou
+        uma nova fase da política brasileira.
+    </p>
+
+    <h3>🏛️ Governo Provisório</h3>
+
+    <p>
+        Entre 1930 e 1934, Vargas governou de forma provisória,
+        concentrando poderes e realizando mudanças na estrutura
+        política do país.
+    </p>
+
+    <h3>📜 Constituição de 1934</h3>
+
+    <p>
+        Em 1934 foi promulgada uma nova Constituição brasileira.
+        Ela estabeleceu mudanças políticas e sociais, incluindo
+        direitos trabalhistas e novas regras eleitorais.
+    </p>
+
+    <h3>⚖️ Estado Novo</h3>
+
+    <p>
+        Em 1937, Vargas realizou um golpe de Estado e instaurou
+        o Estado Novo.
+    </p>
+
+    <p>
+        O período foi marcado pela concentração de poder,
+        fechamento do Congresso Nacional, censura e repressão
+        a opositores políticos.
+    </p>
+
+    <h3>📰 DIP e propaganda</h3>
+
+    <p>
+        O Departamento de Imprensa e Propaganda, conhecido como
+        DIP, teve papel importante na censura e na propaganda
+        oficial do governo.
+    </p>
+
+    <h3>👷 Direitos trabalhistas</h3>
+
+    <p>
+        O período Vargas foi marcado pela criação e consolidação
+        de diversas normas trabalhistas.
+    </p>
+
+    <p>
+        Entre os elementos associados ao período estão a jornada
+        de trabalho regulamentada, salário mínimo e mecanismos
+        de proteção trabalhista.
+    </p>
+
+    <h3>📕 CLT</h3>
+
+    <p>
+        Em 1943 foi criada a Consolidação das Leis do Trabalho,
+        a CLT, reunindo diversas normas relacionadas às relações
+        de trabalho.
+    </p>
+
+    <h3>🏭 Industrialização</h3>
+
+    <p>
+        O Estado passou a participar mais diretamente do processo
+        de industrialização e desenvolvimento econômico.
+    </p>
+
+    <p>
+        Durante esse período foram criadas instituições importantes
+        para o desenvolvimento industrial brasileiro.
+    </p>
+
+    <h3>🏗️ Companhia Siderúrgica Nacional</h3>
+
+    <p>
+        A Companhia Siderúrgica Nacional, criada durante o Estado
+        Novo, tornou-se um dos símbolos da industrialização pesada
+        brasileira.
+    </p>
+
+    <h3>⚔️ Brasil na Segunda Guerra Mundial</h3>
+
+    <p>
+        Inicialmente, o Brasil manteve uma posição de neutralidade,
+        mas posteriormente entrou na Segunda Guerra Mundial ao
+        lado dos Aliados.
+    </p>
+
+    <p>
+        A Força Expedicionária Brasileira participou de operações
+        na Itália contra as forças do Eixo.
+    </p>
+
+    <h3>🏁 Fim do Estado Novo</h3>
+
+    <p>
+        Em 1945, Vargas foi deposto pelas Forças Armadas.
+        O país iniciou uma nova fase democrática.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Maior centralização do Estado.</li>
+        <li>Expansão da legislação trabalhista.</li>
+        <li>Industrialização.</li>
+        <li>Fortalecimento do poder federal.</li>
+        <li>Criação de empresas e instituições estatais.</li>
+        <li>Censura durante o Estado Novo.</li>
+        <li>Fortalecimento da imagem política de Vargas.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- DITADURA MILITAR -->
+<!-- ================================================= -->
+
+<section id="ditadura" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🇧🇷 Ditadura Militar Brasileira</h2>
+
+    <div class="info">
+        <strong>Período:</strong> 1964 – 1985
+    </div>
+
+    <h3>📖 Contexto</h3>
+
+    <p>
+        O Brasil viveu uma grave crise política no início da
+        década de 1960. O presidente João Goulart defendia
+        propostas de reformas de base e enfrentava forte
+        oposição política.
+    </p>
+
+    <h3>⚠️ Golpe de 1964</h3>
+
+    <p>
+        Em março e abril de 1964, setores das Forças Armadas
+        derrubaram o presidente João Goulart.
+    </p>
+
+    <p>
+        O movimento iniciou um regime militar que permaneceria
+        no poder por aproximadamente duas décadas.
+    </p>
+
+    <h3>👥 Presidentes militares</h3>
+
+    <ul>
+        <li>Humberto Castelo Branco.</li>
+        <li>Artur da Costa e Silva.</li>
+        <li>Emílio Garrastazu Médici.</li>
+        <li>Ernesto Geisel.</li>
+        <li>João Figueiredo.</li>
+    </ul>
+
+    <h3>📜 Atos Institucionais</h3>
+
+    <p>
+        Durante o regime foram publicados diversos Atos
+        Institucionais que modificaram as regras políticas
+        e ampliaram os poderes do governo.
+    </p>
+
+    <h3>🚫 AI-5</h3>
+
+    <p>
+        O Ato Institucional nº 5, decretado em 1968, ampliou
+        significativamente os poderes do regime.
+    </p>
+
+    <p>
+        O AI-5 permitiu medidas como fechamento do Congresso,
+        suspensão de direitos políticos e aumento da repressão.
+    </p>
+
+    <h3>📰 Censura</h3>
+
+    <p>
+        A censura atingiu jornais, revistas, músicas, peças
+        de teatro, filmes, livros e outros meios de expressão.
+    </p>
+
+    <h3>⚠️ Repressão</h3>
+
+    <p>
+        O regime perseguiu opositores políticos e organizações
+        consideradas ameaças ao governo.
+    </p>
+
+    <p>
+        Relatos e documentos históricos registram prisões,
+        torturas, mortes e desaparecimentos forçados.
+    </p>
+
+    <h3>💰 Milagre Econômico</h3>
+
+    <p>
+        Entre aproximadamente 1968 e 1973, o Brasil apresentou
+        elevadas taxas de crescimento econômico.
+    </p>
+
+    <p>
+        O crescimento foi acompanhado por grandes investimentos
+        em infraestrutura, mas também por concentração de renda
+        e aumento posterior de dificuldades econômicas.
+    </p>
+
+    <h3>🏗️ Grandes obras</h3>
+
+    <p>
+        O período foi marcado por grandes projetos de infraestrutura,
+        incluindo rodovias, hidrelétricas e obras de integração
+        territorial.
+    </p>
+
+    <h3>🛢️ Crise do petróleo</h3>
+
+    <p>
+        A crise internacional do petróleo na década de 1970
+        aumentou os problemas econômicos brasileiros.
+    </p>
+
+    <h3>🕊️ Abertura política</h3>
+
+    <p>
+        Durante o governo Ernesto Geisel iniciou-se um processo
+        de abertura política que posteriormente continuou durante
+        o governo João Figueiredo.
+    </p>
+
+    <h3>🗳️ Movimento pelas Diretas Já</h3>
+
+    <p>
+        Na década de 1980, manifestações populares defenderam
+        eleições diretas para presidente.
+    </p>
+
+    <h3>🏁 Fim do regime</h3>
+
+    <p>
+        Em 1985, Tancredo Neves foi eleito indiretamente para
+        a Presidência, mas faleceu antes de tomar posse.
+        José Sarney assumiu a Presidência.
+    </p>
+
+    <p>
+        O período marcou o início da Nova República e da
+        redemocratização brasileira.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Centralização política.</li>
+        <li>Censura.</li>
+        <li>Repressão política.</li>
+        <li>Violações de direitos humanos.</li>
+        <li>Crescimento econômico em parte do período.</li>
+        <li>Aumento da dívida externa.</li>
+        <li>Movimentos pela redemocratização.</li>
+        <li>Retorno do governo civil.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- DESCOLONIZAÇÃO DA ÁFRICA -->
+<!-- ================================================= -->
+
+<section id="africa" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🌍 Descolonização da África</h2>
+
+    <div class="info">
+        <strong>Período principal:</strong>
+        século XX, especialmente após 1945
+    </div>
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        A descolonização da África foi o processo pelo qual
+        diferentes territórios africanos conquistaram
+        independência das potências coloniais europeias.
+    </p>
+
+    <h3>🗺️ Colonialismo europeu</h3>
+
+    <p>
+        No final do século XIX, várias potências europeias
+        estabeleceram domínio sobre grandes áreas do continente
+        africano.
+    </p>
+
+    <p>
+        Reino Unido, França, Portugal, Bélgica, Alemanha,
+        Itália e outras potências participaram da expansão
+        colonial.
+    </p>
+
+    <h3>⚔️ Segunda Guerra Mundial</h3>
+
+    <p>
+        A Segunda Guerra Mundial enfraqueceu diversas potências
+        europeias e contribuiu para o fortalecimento dos
+        movimentos nacionalistas africanos.
+    </p>
+
+    <h3>✊ Nacionalismo africano</h3>
+
+    <p>
+        Líderes e movimentos políticos passaram a defender
+        o direito dos povos africanos à autodeterminação
+        e à independência.
+    </p>
+
+    <h3>🇬🇭 Independência de Gana</h3>
+
+    <p>
+        Gana tornou-se independente do Reino Unido em 1957,
+        sob liderança de Kwame Nkrumah.
+    </p>
+
+    <p>
+        A independência de Gana tornou-se um importante símbolo
+        do movimento anticolonial africano.
+    </p>
+
+    <h3>🇩🇿 Guerra da Argélia</h3>
+
+    <p>
+        A Argélia travou uma guerra de independência contra
+        a França entre 1954 e 1962.
+    </p>
+
+    <h3>🇦🇴 Angola</h3>
+
+    <p>
+        Angola tornou-se independente de Portugal em 1975,
+        após uma longa luta anticolonial.
+    </p>
+
+    <h3>🇲🇿 Moçambique</h3>
+
+    <p>
+        Moçambique também conquistou a independência de Portugal
+        em 1975, após a luta liderada pela FRELIMO.
+    </p>
+
+    <h3>🇿🇦 Apartheid</h3>
+
+    <p>
+        Na África do Sul, a luta contra o apartheid tornou-se
+        um dos grandes movimentos políticos do século XX.
+    </p>
+
+    <h3>👤 Nelson Mandela</h3>
+
+    <p>
+        Nelson Mandela foi uma das principais figuras da luta
+        contra o apartheid e tornou-se presidente da África
+        do Sul em 1994.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Criação de dezenas de novos países.</li>
+        <li>Fim de diversos governos coloniais.</li>
+        <li>Fortalecimento dos nacionalismos africanos.</li>
+        <li>Criação de novos governos.</li>
+        <li>Conflitos políticos em algumas regiões.</li>
+        <li>Disputas territoriais.</li>
+        <li>Desafios econômicos após a independência.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- REVOLUÇÃO CHINESA -->
+<!-- ================================================= -->
+
+<section id="china" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🇨🇳 Revolução Chinesa</h2>
+
+    <div class="info">
+        <strong>Marco principal:</strong> 1949
+    </div>
+
+    <h3>📖 Contexto</h3>
+
+    <p>
+        A China passou por profundas crises políticas e sociais
+        durante o século XIX e início do século XX.
+    </p>
+
+    <p>
+        O país enfrentou intervenções estrangeiras, conflitos
+        internos, problemas econômicos e disputas pelo poder.
+    </p>
+
+    <h3>👑 Fim do Império</h3>
+
+    <p>
+        Em 1911 ocorreu a Revolução Xinhai, que derrubou a
+        dinastia Qing e encerrou o sistema imperial chinês.
+    </p>
+
+    <h3>🏛️ República da China</h3>
+
+    <p>
+        Após o fim do império, foi estabelecida uma república,
+        mas o país continuou enfrentando instabilidade política.
+    </p>
+
+    <h3>☭ Partido Comunista Chinês</h3>
+
+    <p>
+        O Partido Comunista Chinês foi fundado em 1921 e
+        posteriormente tornou-se uma das principais forças
+        políticas do país.
+    </p>
+
+    <h3>👤 Mao Tsé-Tung</h3>
+
+    <p>
+        Mao Tsé-Tung tornou-se uma das principais lideranças
+        do Partido Comunista Chinês.
+    </p>
+
+    <h3>⚔️ Guerra Civil</h3>
+
+    <p>
+        O conflito entre comunistas e nacionalistas marcou
+        grande parte da história chinesa da primeira metade
+        do século XX.
+    </p>
+
+    <h3>🇯🇵 Invasão japonesa</h3>
+
+    <p>
+        A expansão japonesa na China agravou os conflitos
+        existentes e provocou enorme destruição.
+    </p>
+
+    <h3>🏁 1949</h3>
+
+    <p>
+        Em 1949, Mao Tsé-Tung proclamou a República Popular
+        da China após a vitória comunista na guerra civil.
+    </p>
+
+    <p>
+        Os nacionalistas liderados por Chiang Kai-shek
+        retiraram-se para Taiwan.
+    </p>
+
+    <h3>🌾 Reformas</h3>
+
+    <p>
+        O novo governo promoveu profundas mudanças na propriedade
+        da terra, na economia e na organização política.
+    </p>
+
+    <h3>🚜 Grande Salto Adiante</h3>
+
+    <p>
+        Entre 1958 e 1962, o governo lançou o Grande Salto Adiante,
+        uma campanha destinada a acelerar a industrialização
+        e transformar a economia chinesa.
+    </p>
+
+    <p>
+        A política provocou graves problemas econômicos e uma
+        grande fome, causando milhões de mortes.
+    </p>
+
+    <h3>📕 Revolução Cultural</h3>
+
+    <p>
+        A Revolução Cultural começou em 1966 e provocou enormes
+        transformações políticas e sociais, além de perseguições,
+        violência e desorganização econômica e educacional.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Criação da República Popular da China.</li>
+        <li>Fortalecimento do Partido Comunista.</li>
+        <li>Mudanças na estrutura agrária.</li>
+        <li>Transformações econômicas.</li>
+        <li>Rompimento inicial com o governo nacionalista.</li>
+        <li>Alteração do equilíbrio político mundial.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- RENASCIMENTO -->
+<!-- ================================================= -->
+
+<section id="renascimento" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>🎨 Renascimento</h2>
+
+    <div class="info">
+        <strong>Período:</strong>
+        principalmente séculos XIV – XVI
+    </div>
+
+    <h3>📖 O que foi?</h3>
+
+    <p>
+        O Renascimento foi um importante movimento cultural,
+        artístico e intelectual desenvolvido inicialmente
+        em cidades italianas.
+    </p>
+
+    <p>
+        Posteriormente, suas ideias e manifestações se
+        espalharam por diferentes regiões da Europa.
+    </p>
+
+    <h3>🇮🇹 Cidades italianas</h3>
+
+    <p>
+        Cidades como Florença, Veneza, Roma e Milão tiveram
+        papel importante no desenvolvimento renascentista.
+    </p>
+
+    <h3>🧠 Humanismo</h3>
+
+    <p>
+        O humanismo valorizava o estudo do ser humano,
+        da literatura, da filosofia e das obras da Antiguidade
+        greco-romana.
+    </p>
+
+    <h3>🎨 Arte</h3>
+
+    <p>
+        Artistas renascentistas desenvolveram técnicas
+        relacionadas à perspectiva, anatomia, proporção
+        e representação realista.
+    </p>
+
+    <h3>👤 Leonardo da Vinci</h3>
+
+    <p>
+        Leonardo da Vinci foi pintor, desenhista, inventor,
+        engenheiro e estudioso de anatomia.
+    </p>
+
+    <p>
+        Entre suas obras mais famosas estão a Mona Lisa
+        e A Última Ceia.
+    </p>
+
+    <h3>🖌️ Michelangelo</h3>
+
+    <p>
+        Michelangelo destacou-se como escultor, pintor e
+        arquiteto.
+    </p>
+
+    <p>
+        Entre seus trabalhos estão a escultura de Davi e
+        os afrescos do teto da Capela Sistina.
+    </p>
+
+    <h3>🎨 Rafael</h3>
+
+    <p>
+        Rafael Sanzio foi outro importante artista do período.
+        Suas pinturas ficaram conhecidas pela harmonia,
+        equilíbrio e composição.
+    </p>
+
+    <h3>📚 Imprensa</h3>
+
+    <p>
+        A invenção e expansão da imprensa de tipos móveis,
+        associada a Johannes Gutenberg no século XV,
+        facilitaram a circulação de livros e ideias na Europa.
+    </p>
+
+    <h3>🔬 Ciência</h3>
+
+    <p>
+        O período contribuiu para uma valorização crescente
+        da observação, da matemática e do estudo da natureza.
+    </p>
+
+    <h3>📌 Características</h3>
+
+    <ul>
+        <li>Humanismo.</li>
+        <li>Valorização da Antiguidade clássica.</li>
+        <li>Desenvolvimento artístico.</li>
+        <li>Estudo da anatomia.</li>
+        <li>Uso da perspectiva.</li>
+        <li>Maior circulação de livros.</li>
+        <li>Patrocínio artístico.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- REFORMA PROTESTANTE -->
+<!-- ================================================= -->
+
+<section id="reforma" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>⛪ Reforma Protestante</h2>
+
+    <div class="info">
+        <strong>Marco tradicional:</strong>
+        1517
+    </div>
+
+    <h3>📖 Contexto</h3>
+
+    <p>
+        Durante o século XVI, críticas à Igreja Católica
+        aumentaram em diferentes partes da Europa.
+    </p>
+
+    <p>
+        Essas críticas estavam relacionadas a questões
+        religiosas, políticas, econômicas e sociais.
+    </p>
+
+    <h3>👤 Martinho Lutero</h3>
+
+    <p>
+        Martinho Lutero foi um monge e teólogo alemão que
+        criticou práticas da Igreja Católica.
+    </p>
+
+    <h3>📜 95 Teses</h3>
+
+    <p>
+        Em 1517, Lutero apresentou suas famosas 95 Teses,
+        nas quais criticava especialmente práticas relacionadas
+        às indulgências.
+    </p>
+
+    <h3>📖 Imprensa</h3>
+
+    <p>
+        A expansão da imprensa ajudou a divulgar textos
+        religiosos e contribuiu para que as ideias reformistas
+        alcançassem diferentes regiões.
+    </p>
+
+    <h3>⛪ Luteranismo</h3>
+
+    <p>
+        As ideias de Lutero deram origem ao luteranismo,
+        uma das principais tradições protestantes.
+    </p>
+
+    <h3>🇨🇭 João Calvino</h3>
+
+    <p>
+        João Calvino desenvolveu uma importante tradição
+        reformada com grande influência em partes da Europa.
+    </p>
+
+    <h3>🇬🇧 Reforma Inglesa</h3>
+
+    <p>
+        Na Inglaterra ocorreu um processo específico de
+        ruptura com a autoridade papal, associado ao reinado
+        de Henrique VIII.
+    </p>
+
+    <h3>⛪ Contrarreforma</h3>
+
+    <p>
+        A Igreja Católica respondeu às transformações
+        religiosas através de reformas internas e ações
+        de reafirmação de sua doutrina.
+    </p>
+
+    <h3>📜 Concílio de Trento</h3>
+
+    <p>
+        O Concílio de Trento ocorreu entre 1545 e 1563
+        e foi um dos principais acontecimentos da chamada
+        Reforma Católica ou Contrarreforma.
+    </p>
+
+    <h3>⚔️ Conflitos religiosos</h3>
+
+    <p>
+        A divisão religiosa provocou conflitos políticos
+        e militares em diferentes partes da Europa.
+    </p>
+
+    <h3>📌 Consequências</h3>
+
+    <ul>
+        <li>Divisão religiosa da Europa.</li>
+        <li>Fortalecimento das igrejas protestantes.</li>
+        <li>Reformas dentro da Igreja Católica.</li>
+        <li>Guerras religiosas.</li>
+        <li>Maior circulação de textos religiosos.</li>
+        <li>Transformações políticas e culturais.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ERA NAPOLEÔNICA -->
+<!-- ================================================= -->
+
+<section id="napoleao" class="aba">
+
+    <button class="voltar" onclick="abrirAba('diversos')">
+        ← Voltar aos temas
+    </button>
+
+    <h2>👑 Era Napoleônica</h2>
+
+    <div class="info">
+        <strong>Período:</strong>
+        1799 – 1815
+    </div>
+
+    <h3>📖 Introdução</h3>
+
+    <p>
+        A Era Napoleônica corresponde ao período em que
+        Napoleão Bonaparte exerceu o poder político na França
+        e expandiu sua influência por grande parte da Europa.
+    </p>
+
+    <h3>👤 Napoleão Bonaparte</h3>
+
+    <p>
+        Napoleão nasceu na Córsega e tornou-se militar durante
+        a Revolução Francesa.
+    </p>
+
+    <p>
+        Seus sucessos militares contribuíram para aumentar
+        sua popularidade e influência política.
+    </p>
+
+    <h3>🏛️ Golpe de 18 de Brumário</h3>
+
+    <p>
+        Em 1799, Napoleão participou do golpe conhecido como
+        18 de Brumário, que encerrou o governo do Diretório.
+    </p>
+
+    <h3>🏛️ Consulado</h3>
+
+    <p>
+        Após o golpe, foi estabelecido o Consulado.
+        Napoleão tornou-se o principal governante francês.
+    </p>
+
+    <h3>📜 Código Napoleônico</h3>
+
+    <p>
+        O Código Civil Napoleônico, promulgado em 1804,
+        organizou princípios jurídicos que influenciaram
+        diversos sistemas legais posteriores.
+    </p>
+
+    <h3>👑 Imperador</h3>
+
+    <p>
+        Em 1804, Napoleão foi coroado imperador dos franceses.
+    </p>
+
+    <h3>⚔️ Guerras Napoleônicas</h3>
+
+    <p>
+        O Império Francês enfrentou diversas coalizões formadas
+        por potências europeias que buscavam conter sua expansão.
+    </p>
+
+    <h3>🇪🇸 Espanha</h3>
+
+    <p>
+        A invasão francesa da Península Ibérica provocou forte
+        resistência espanhola e portuguesa.
+    </p>
+
+    <h3>🇷🇺 Campanha da Rússia</h3>
+
+    <p>
+        Em 1812, Napoleão invadiu a Rússia com um enorme exército.
+        A campanha terminou com perdas devastadoras para as forças
+        francesas.
+    </p>
+
+    <h3>🏝️ Primeiro exílio</h3>
+
+    <p>
+        Em 1814, Napoleão abdicou e foi enviado para a ilha
+        de Elba.
+    </p>
+
+    <h3>🚢 Os Cem Dias</h3>
+
+    <p>
+        Em 1815, Napoleão escapou de Elba e retornou à França,
+        iniciando o período conhecido como Cem Dias.
+    </p>
+
+    <h3>⚔️ Batalha de Waterloo</h3>
+
+    <p>
+        Em 18 de junho de 1815, Napoleão foi derrotado na
+        Batalha de Waterloo.
+    </p>
+
+    <h3>🏝️ Santa Helena</h3>
+
+    <p>
+        Após sua derrota, Napoleão foi exilado para a ilha
+        de Santa Helena, onde morreu em 1821.
+    </p>
+
+    <h3>🌍 Congresso de Viena</h3>
+
+    <p>
+        Após as guerras napoleônicas, as principais potências
+        europeias reuniram-se no Congresso de Viena para
+        reorganizar o mapa político europeu.
+    </p>
+
+    <h3>📌 Legado</h3>
+
+    <ul>
+        <li>Expansão territorial francesa.</li>
+        <li>Reformas administrativas.</li>
+        <li>Difusão do Código Napoleônico.</li>
+        <li>Transformações políticas europeias.</li>
+        <li>Fortalecimento do nacionalismo.</li>
+        <li>Reorganização territorial da Europa.</li>
+        <li>Influência duradoura no direito e na política.</li>
+    </ul>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- LINHA DO TEMPO AMPLIADA -->
+<!-- ================================================= -->
+
+<section id="linha" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>⏳ Linha do Tempo da História</h2>
+
+    <p>
+        Esta linha do tempo apresenta alguns acontecimentos
+        importantes da História mundial e brasileira.
+    </p>
+
+    <div class="linha">
+
+        <div class="evento">
+            <span>🏺</span>
+            <h3>c. 3100 a.C.</h3>
+            <p>
+                Unificação do Egito e formação do Estado egípcio.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🏛️</span>
+            <h3>509 a.C.</h3>
+            <p>
+                Início tradicional da República Romana.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🏛️</span>
+            <h3>508/507 a.C.</h3>
+            <p>
+                Reformas políticas associadas ao desenvolvimento
+                da democracia ateniense.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>✝️</span>
+            <h3>Século I</h3>
+            <p>
+                Surgimento do cristianismo no contexto do
+                Império Romano.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🏰</span>
+            <h3>476</h3>
+            <p>
+                Queda do Império Romano do Ocidente.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🎨</span>
+            <h3>Séculos XIV–XVI</h3>
+            <p>
+                Desenvolvimento e expansão do Renascimento.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🧭</span>
+            <h3>1492</h3>
+            <p>
+                Viagem de Cristóvão Colombo às Américas.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1500</h3>
+            <p>
+                Chegada da expedição portuguesa comandada
+                por Pedro Álvares Cabral ao território brasileiro.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>⛪</span>
+            <h3>1517</h3>
+            <p>
+                Marco tradicional da Reforma Protestante.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇺🇸</span>
+            <h3>1776</h3>
+            <p>
+                Declaração de Independência dos Estados Unidos.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇫🇷</span>
+            <h3>1789</h3>
+            <p>
+                Início da Revolução Francesa.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>👑</span>
+            <h3>1799</h3>
+            <p>
+                Napoleão chega ao poder através do golpe
+                de 18 de Brumário.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🏭</span>
+            <h3>Século XVIII</h3>
+            <p>
+                Desenvolvimento da Revolução Industrial.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1808</h3>
+            <p>
+                Chegada da família real portuguesa ao Brasil.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1822</h3>
+            <p>
+                Independência do Brasil.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>⚔️</span>
+            <h3>1914</h3>
+            <p>
+                Início da Primeira Guerra Mundial.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>☭</span>
+            <h3>1917</h3>
+            <p>
+                Revoluções na Rússia.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1930</h3>
+            <p>
+                Getúlio Vargas chega ao poder.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🌍</span>
+            <h3>1939</h3>
+            <p>
+                Início da Segunda Guerra Mundial.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>☢️</span>
+            <h3>1945</h3>
+            <p>
+                Fim da Segunda Guerra Mundial e criação da ONU.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇮🇳</span>
+            <h3>1947</h3>
+            <p>
+                Independência da Índia e marco convencional
+                do início da Guerra Fria.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇨🇳</span>
+            <h3>1949</h3>
+            <p>
+                Proclamação da República Popular da China.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1964</h3>
+            <p>
+                Início do regime militar brasileiro.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🧱</span>
+            <h3>1961</h3>
+            <p>
+                Construção do Muro de Berlim.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🚀</span>
+            <h3>1969</h3>
+            <p>
+                Primeiro pouso humano na Lua.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🌍</span>
+            <h3>1975</h3>
+            <p>
+                Independência de Angola e Moçambique.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇧🇷</span>
+            <h3>1985</h3>
+            <p>
+                Fim do regime militar brasileiro.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🧱</span>
+            <h3>1989</h3>
+            <p>
+                Queda do Muro de Berlim.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>☭</span>
+            <h3>1991</h3>
+            <p>
+                Dissolução da União Soviética.
+            </p>
+        </div>
+
+        <div class="evento">
+            <span>🇿🇦</span>
+            <h3>1994</h3>
+            <p>
+                Nelson Mandela assume a presidência da África do Sul.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- CURIOSIDADES -->
+<!-- ================================================= -->
+
+<section id="curiosidades" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>🤯 Curiosidades Históricas</h2>
+
+    <p>
+        A História está cheia de acontecimentos curiosos,
+        descobertas e fatos que ajudam a compreender melhor
+        diferentes sociedades.
+    </p>
+
+    <div class="curiosidades">
+
+        <article>
+
+            <span>🏺</span>
+
+            <h3>Egito</h3>
+
+            <p>
+                A Grande Pirâmide de Gizé é a única das Sete
+                Maravilhas do Mundo Antigo que permanece
+                amplamente preservada.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🏛️</span>
+
+            <h3>Roma</h3>
+
+            <p>
+                Os romanos construíram uma extensa rede de
+                estradas que ajudava na circulação de tropas,
+                comerciantes e mensagens.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🇫🇷</span>
+
+            <h3>Revolução Francesa</h3>
+
+            <p>
+                A tomada da Bastilha ocorreu em 14 de julho
+                de 1789 e tornou-se um dos principais símbolos
+                da Revolução Francesa.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🎨</span>
+
+            <h3>Renascimento</h3>
+
+            <p>
+                Leonardo da Vinci estudou áreas muito diferentes,
+                incluindo pintura, engenharia, anatomia e
+                matemática.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🚂</span>
+
+            <h3>Revolução Industrial</h3>
+
+            <p>
+                A industrialização alterou profundamente
+                o trabalho, as cidades, os transportes
+                e a produção de mercadorias.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>⚔️</span>
+
+            <h3>Primeira Guerra Mundial</h3>
+
+            <p>
+                A guerra foi marcada pelo uso de trincheiras,
+                especialmente na Frente Ocidental.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🌍</span>
+
+            <h3>Segunda Guerra Mundial</h3>
+
+            <p>
+                O conflito envolveu países de diferentes
+                continentes e tornou-se uma guerra verdadeiramente
+                mundial.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🚀</span>
+
+            <h3>Guerra Fria</h3>
+
+            <p>
+                A disputa entre Estados Unidos e União Soviética
+                também aconteceu no espaço, na ciência,
+                na tecnologia e nos esportes.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🇧🇷</span>
+
+            <h3>Brasil</h3>
+
+            <p>
+                O Brasil tornou-se independente em 1822,
+                mas permaneceu como uma monarquia até 1889.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>☭</span>
+
+            <h3>Revolução Russa</h3>
+
+            <p>
+                Os acontecimentos de 1917 derrubaram o czarismo
+                e levaram os bolcheviques ao poder.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🌍</span>
+
+            <h3>África</h3>
+
+            <p>
+                Gana foi o primeiro país da África subsaariana
+                sob domínio colonial europeu a conquistar
+                independência no período pós-Segunda Guerra Mundial.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🇨🇳</span>
+
+            <h3>China</h3>
+
+            <p>
+                A República Popular da China foi proclamada
+                em 1949 por Mao Tsé-Tung.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>👑</span>
+
+            <h3>Napoleão</h3>
+
+            <p>
+                Napoleão foi exilado duas vezes. Após retornar
+                durante os Cem Dias, foi definitivamente derrotado
+                em Waterloo.
+            </p>
+
+        </article>
+
+
+        <article>
+
+            <span>🇺🇸</span>
+
+            <h3>Estados Unidos</h3>
+
+            <p>
+                A Declaração de Independência foi aprovada
+                em 4 de julho de 1776.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- GLOSSÁRIO -->
+<!-- ================================================= -->
+
+<section id="glossario" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>📖 Glossário Histórico</h2>
+
+    <p>
+        Consulte alguns termos importantes utilizados no estudo
+        da História.
+    </p>
+
+    <div class="cards">
+
+        <article class="card">
+            <h4>🏛️ Absolutismo</h4>
+            <p>
+                Sistema político no qual o monarca concentrava
+                grande quantidade de poderes.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🌎 Colonialismo</h4>
+            <p>
+                Sistema de dominação no qual uma potência controla
+                territórios e populações de outras regiões.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🏭 Industrialização</h4>
+            <p>
+                Processo de desenvolvimento da produção industrial
+                e do uso de máquinas e fábricas.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>👑 Monarquia</h4>
+            <p>
+                Forma de governo em que o chefe de Estado é
+                normalmente um monarca.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🏛️ República</h4>
+            <p>
+                Forma de organização política em que o chefe
+                de Estado não ocupa o cargo por sucessão hereditária.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>☭ Socialismo</h4>
+            <p>
+                Conjunto de ideias e movimentos que defendem
+                diferentes formas de organização econômica e
+                social baseadas na propriedade ou controle
+                coletivo dos meios de produção.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>💰 Capitalismo</h4>
+            <p>
+                Sistema econômico baseado principalmente na
+                propriedade privada, mercados e busca por lucro.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🌍 Imperialismo</h4>
+            <p>
+                Política de expansão do poder de um Estado sobre
+                outros territórios ou povos.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🗳️ Democracia</h4>
+            <p>
+                Sistema político baseado na participação dos
+                cidadãos nas decisões públicas.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>⚔️ Nacionalismo</h4>
+            <p>
+                Ideologia ou sentimento que atribui grande
+                importância à identidade e aos interesses
+                de uma nação.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>🕊️ Diplomacia</h4>
+            <p>
+                Conjunto de práticas utilizadas nas relações
+                entre Estados para negociar interesses e conflitos.
+            </p>
+        </article>
+
+        <article class="card">
+            <h4>☢️ Guerra Fria</h4>
+            <p>
+                Disputa política, econômica, militar, tecnológica
+                e ideológica entre Estados Unidos e União Soviética.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- SOBRE O SITE -->
+<!-- ================================================= -->
+
+<section id="sobre" class="aba">
+
+    <button class="voltar" onclick="abrirAba('inicio')">
+        ← Voltar ao início
+    </button>
+
+    <h2>📜 Sobre o projeto</h2>
+
+    <p>
+        O <strong>Grandes Momentos da História</strong> é um
+        projeto educacional desenvolvido para apresentar
+        acontecimentos históricos de maneira organizada,
+        acessível e didática.
+    </p>
+
+    <p>
+        O objetivo é ajudar estudantes e interessados em História
+        a compreender acontecimentos importantes, relacionando
+        causas, personagens, conflitos, transformações e
+        consequências.
+    </p>
+
+    <h3>🎯 Objetivos</h3>
+
+    <ul>
+        <li>Facilitar o estudo de História.</li>
+        <li>Apresentar acontecimentos importantes.</li>
+        <li>Estimular o interesse pelo passado.</li>
+        <li>Relacionar acontecimentos históricos.</li>
+        <li>Mostrar diferentes períodos da História.</li>
+        <li>Valorizar a História do Brasil.</li>
+    </ul>
+
+    <h3>📚 Temas disponíveis</h3>
+
+    <ul>
+        <li>Primeira Guerra Mundial.</li>
+        <li>Segunda Guerra Mundial.</li>
+        <li>Revolução Francesa.</li>
+        <li>Independência do Brasil.</li>
+        <li>Revolução Industrial.</li>
+        <li>Guerra Fria.</li>
+        <li>Egito Antigo.</li>
+        <li>Grécia Antiga.</li>
+        <li>Roma Antiga.</li>
+        <li>Idade Média.</li>
+        <li>Grandes Navegações.</li>
+        <li>Independência dos Estados Unidos.</li>
+        <li>Revolução Russa.</li>
+        <li>Era Vargas.</li>
+        <li>Ditadura Militar Brasileira.</li>
+        <li>Descolonização da África.</li>
+        <li>Revolução Chinesa.</li>
+        <li>Renascimento.</li>
+        <li>Reforma Protestante.</li>
+        <li>Era Napoleônica.</li>
+    </ul>
+
+    <h3>👨‍💻 Criador</h3>
+
+    <p>
+        <strong>Luiz Eduardo Sena da Mata Machado</strong>
+    </p>
+
+    <p>
+        Projeto desenvolvido com finalidade educacional.
+    </p>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+    <div class="footer-conteudo">
+
+        <div class="footer-logo">
+            📜
+        </div>
+
+        <h2>Grandes Momentos da História</h2>
+
+        <p>
+            Conheça o passado. Entenda o presente.
+        </p>
+
+        <hr>
+
+        <p>
+            <strong>Criador:</strong>
+            Luiz Eduardo Sena da Mata Machado
+        </p>
+
+        <p>
+            📚 História Mundial • 🇧🇷 História do Brasil
+        </p>
+
+        <p>
+            ⏳ Antiguidade • Idade Média • Idade Moderna •
+            Idade Contemporânea
+        </p>
+
+        <p class="copyright">
+            © 2026 — Todos os direitos reservados
+        </p>
+
+    </div>
+
+</footer>
+
+
